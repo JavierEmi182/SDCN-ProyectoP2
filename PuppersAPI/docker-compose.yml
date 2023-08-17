@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  api:
+    container_name: PuppersAPI
+    image: nodejs
+    restart: unless-stopped
+    build: .
+    networks:
+      - backend
+    environment:
+      - MYSQL_DATABASE=PuppersDB
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PORT=6253
+
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
+
+networks:
+  backend:
+    driver: bridge

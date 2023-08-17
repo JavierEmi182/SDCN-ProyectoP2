@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="106" failures="0" errors="0" time="24.016">
+  <testsuite name="TC- 00 Server Runing" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:09" time="1.565" tests="1">
+    <testcase classname="TC- 00 Server Runing GET /" name="TC- 00 Server Runing GET /" time="0.03">
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing tokenVerified middlewares" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:10" time="0.783" tests="13">
+    <testcase classname="Testing tokenVerified middlewares TC-51: authChecker check no toke in send" name="Testing tokenVerified middlewares TC-51: authChecker check no toke in send" time="0.004">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-52: authChecker check token is from ADMIN" name="Testing tokenVerified middlewares TC-52: authChecker check token is from ADMIN" time="0.113">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-53: authChecker check token is from CLIENTE" name="Testing tokenVerified middlewares TC-53: authChecker check token is from CLIENTE" time="0.017">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-54: authChecker check token is from PASEADOR" name="Testing tokenVerified middlewares TC-54: authChecker check token is from PASEADOR" time="0.021">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-55: authChecker check token with wrong type" name="Testing tokenVerified middlewares TC-55: authChecker check token with wrong type" time="0.003">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-56: authChecker check token is not form the API" name="Testing tokenVerified middlewares TC-56: authChecker check token is not form the API" time="0.002">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-57: authGranter check that there was no TOKEN" name="Testing tokenVerified middlewares TC-57: authGranter check that there was no TOKEN" time="0.001">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-58: authGranter check locals.authType is not in the list " name="Testing tokenVerified middlewares TC-58: authGranter check locals.authType is not in the list " time="0.001">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-59: authGranter check that check locals.authType == PASEADOR can been granted auth" name="Testing tokenVerified middlewares TC-59: authGranter check that check locals.authType == PASEADOR can been granted auth" time="0.001">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-60: authGranter check that check locals.authType == CLIENTE is in the list for been granted auth" name="Testing tokenVerified middlewares TC-60: authGranter check that check locals.authType == CLIENTE is in the list for been granted auth" time="0.001">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-61: authGranter check that check locals.authType == ADMIN can been granted auth" name="Testing tokenVerified middlewares TC-61: authGranter check that check locals.authType == ADMIN can been granted auth" time="0.001">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-62: authGranter check that check locals.authType == ADMIN is in the list for been granted auth" name="Testing tokenVerified middlewares TC-62: authGranter check that check locals.authType == ADMIN is in the list for been granted auth" time="0">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-63: authGranter check that check locals.authType == PASEADOR is in the list for been granted auth" name="Testing tokenVerified middlewares TC-63: authGranter check that check locals.authType == PASEADOR is in the list for been granted auth" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create and Delete  Servicios" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:11" time="0.892" tests="7">
+    <testcase classname="Create and Delete  Servicios TC-901 POST /servicios/add : succesful add" name="Create and Delete  Servicios TC-901 POST /servicios/add : succesful add" time="0.113">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-902 POST /servicios/add : pet_token does no exist " name="Create and Delete  Servicios TC-902 POST /servicios/add : pet_token does no exist " time="0.047">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-903 POST /servicios/add : walker_ID does not exist" name="Create and Delete  Servicios TC-903 POST /servicios/add : walker_ID does not exist" time="0.041">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-904 POST /servicios/add : walker_ID not valid" name="Create and Delete  Servicios TC-904 POST /servicios/add : walker_ID not valid" time="0.025">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-905 POST /servicios/add : franja_id does no exist " name="Create and Delete  Servicios TC-905 POST /servicios/add : franja_id does no exist " time="0.085">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-906 DELETE /servicios/delete/:servicio_ID : correct servicio_ID " name="Create and Delete  Servicios TC-906 DELETE /servicios/delete/:servicio_ID : correct servicio_ID " time="0.017">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-907 DELETE /servicios/delete/:servicio_ID : wrong servicio_ID " name="Create and Delete  Servicios TC-907 DELETE /servicios/delete/:servicio_ID : wrong servicio_ID " time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing paseadoresVerification functions" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:12" time="0.646" tests="9">
+    <testcase classname="Testing paseadoresVerification functions TC-15 checkCredentials paseador: all correct" name="Testing paseadoresVerification functions TC-15 checkCredentials paseador: all correct" time="0.033">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-16 checkCredentials paseador: password incorrect" name="Testing paseadoresVerification functions TC-16 checkCredentials paseador: password incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-17 checkCredentials paseador: user incorrect" name="Testing paseadoresVerification functions TC-17 checkCredentials paseador: user incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-18 checkCredentials paseador: empty parameters" name="Testing paseadoresVerification functions TC-18 checkCredentials paseador: empty parameters" time="0.003">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-19 checkUser paseador: user correct" name="Testing paseadoresVerification functions TC-19 checkUser paseador: user correct" time="0.003">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-20 checkUser paseador: user incorrect" name="Testing paseadoresVerification functions TC-20 checkUser paseador: user incorrect" time="0.002">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-21 checkUser paseador: empty parameters" name="Testing paseadoresVerification functions TC-21 checkUser paseador: empty parameters" time="0.002">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-22 checkID walker_ID: pet_token correct" name="Testing paseadoresVerification functions TC-22 checkID walker_ID: pet_token correct" time="0.034">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-23 checkID walker_ID: walker_ID incorrect" name="Testing paseadoresVerification functions TC-23 checkID walker_ID: walker_ID incorrect" time="0.025">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create , Update , Delete Mascotas" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:13" time="0.854" tests="7">
+    <testcase classname="Create , Update , Delete Mascotas TC-601 POST /mascotas/add : successful  add" name="Create , Update , Delete Mascotas TC-601 POST /mascotas/add : successful  add" time="0.098">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-602 POST /mascotas/add : client_ID does no exist " name="Create , Update , Delete Mascotas TC-602 POST /mascotas/add : client_ID does no exist " time="0.05">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-603 PUT /mascotas/update : correct pet_token" name="Create , Update , Delete Mascotas TC-603 PUT /mascotas/update : correct pet_token" time="0.034">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-604 PUT /mascotas/update : wrong pet_token" name="Create , Update , Delete Mascotas TC-604 PUT /mascotas/update : wrong pet_token" time="0.023">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-605 PUT /mascotas/update : client_ID does no exist" name="Create , Update , Delete Mascotas TC-605 PUT /mascotas/update : client_ID does no exist" time="0.022">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-606 DELETE /mascotas/delete/:pet_token : correct pet_token" name="Create , Update , Delete Mascotas TC-606 DELETE /mascotas/delete/:pet_token : correct pet_token" time="0.026">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-607 DELETE /mascotas/delete/:pet_token : wrong pet_token" name="Create , Update , Delete Mascotas TC-607 DELETE /mascotas/delete/:pet_token : wrong pet_token" time="0.019">
+    </testcase>
+  </testsuite>
+  <testsuite name="Update request Clientes" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:13" time="0.767" tests="6">
+    <testcase classname="Update request Clientes TC-308 PUT /clientes/update : successful  update" name="Update request Clientes TC-308 PUT /clientes/update : successful  update" time="0.106">
+    </testcase>
+    <testcase classname="Update request Clientes TC-309 PUT /clientes/update : wrong client_ID" name="Update request Clientes TC-309 PUT /clientes/update : wrong client_ID" time="0.016">
+    </testcase>
+    <testcase classname="Update request Clientes TC-310 PUT /clientes/update/auth: correct credentials and new user" name="Update request Clientes TC-310 PUT /clientes/update/auth: correct credentials and new user" time="0.034">
+    </testcase>
+    <testcase classname="Update request Clientes TC-311 PUT /clientes/update/auth: correct credentials , but new user already  in use" name="Update request Clientes TC-311 PUT /clientes/update/auth: correct credentials , but new user already  in use" time="0.008">
+    </testcase>
+    <testcase classname="Update request Clientes TC-312 PUT /clientes/update/auth: wrong credentials" name="Update request Clientes TC-312 PUT /clientes/update/auth: wrong credentials" time="0.008">
+    </testcase>
+    <testcase classname="Update request Clientes TC-313 PUT /clientes/update/auth: correct credentials and old user" name="Update request Clientes TC-313 PUT /clientes/update/auth: correct credentials and old user" time="0.029">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create , Update , Delete Admin" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:14" time="0.834" tests="10">
+    <testcase classname="Create , Update , Delete Admin TC-101 POST /admin/add: new user " name="Create , Update , Delete Admin TC-101 POST /admin/add: new user " time="0.062">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-102 POST /admin/add:  already existing admin_username" name="Create , Update , Delete Admin TC-102 POST /admin/add:  already existing admin_username" time="0.012">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-103 POST /admin/log: correct credentials" name="Create , Update , Delete Admin TC-103 POST /admin/log: correct credentials" time="0.008">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-104 POST /admin/log: Wrong credentials " name="Create , Update , Delete Admin TC-104 POST /admin/log: Wrong credentials " time="0.013">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-105 PUT /admin/update/auth: correct credentials and new user " name="Create , Update , Delete Admin TC-105 PUT /admin/update/auth: correct credentials and new user " time="0.027">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-110 PUT /admin/update/auth: correct credentials and old user " name="Create , Update , Delete Admin TC-110 PUT /admin/update/auth: correct credentials and old user " time="0.024">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-106 PUT /admin/update/auth: correct credentials and new user alredy in use" name="Create , Update , Delete Admin TC-106 PUT /admin/update/auth: correct credentials and new user alredy in use" time="0.007">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-107 PUT /admin/update/auth: wrong credentials" name="Create , Update , Delete Admin TC-107 PUT /admin/update/auth: wrong credentials" time="0.013">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-108 DELETE /admin/delete/:admin_username : correct admin_username" name="Create , Update , Delete Admin TC-108 DELETE /admin/delete/:admin_username : correct admin_username" time="0.019">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-109 DELETE /admin/delete/:admin_username : wrong admin_username" name="Create , Update , Delete Admin TC-109 DELETE /admin/delete/:admin_username : wrong admin_username" time="0.011">
+    </testcase>
+  </testsuite>
+  <testsuite name="Start and end request for Paseo" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:15" time="0.91" tests="5">
+    <testcase classname="Start and end request for Paseo TC-801 POST /paseos/start : succesful start" name="Start and end request for Paseo TC-801 POST /paseos/start : succesful start" time="0.099">
+    </testcase>
+    <testcase classname="Start and end request for Paseo TC-802 POST /paseos/start : wrong ids for start " name="Start and end request for Paseo TC-802 POST /paseos/start : wrong ids for start " time="0.104">
+    </testcase>
+    <testcase classname="Start and end request for Paseo TC-803 PUT /paseos/end : successful  end" name="Start and end request for Paseo TC-803 PUT /paseos/end : successful  end" time="0.029">
+    </testcase>
+    <testcase classname="Start and end request for Paseo TC-804 PUT /paseos/end : wrong paseo_ID for end" name="Start and end request for Paseo TC-804 PUT /paseos/end : wrong paseo_ID for end" time="0.025">
+    </testcase>
+    <testcase classname="Start and end request for Paseo TC-805 PUT /paseos/end : paseo already ended for end" name="Start and end request for Paseo TC-805 PUT /paseos/end : paseo already ended for end" time="0.043">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create request Clientes" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:16" time="0.915" tests="3">
+    <testcase classname="Create request Clientes TC-301 POST /clientes/add: new cliente" name="Create request Clientes TC-301 POST /clientes/add: new cliente" time="0.098">
+    </testcase>
+    <testcase classname="Create request Clientes TC-302 POST /clientes/add : client_ID already in use" name="Create request Clientes TC-302 POST /clientes/add : client_ID already in use" time="0.064">
+    </testcase>
+    <testcase classname="Create request Clientes TC-303 POST /clientes/add: client_user already in use" name="Create request Clientes TC-303 POST /clientes/add: client_user already in use" time="0.015">
+    </testcase>
+  </testsuite>
+  <testsuite name="Update request Paseadores" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:17" time="0.892" tests="6">
+    <testcase classname="Update request Paseadores TC-708 PUT /paseadores/update : successful  update" name="Update request Paseadores TC-708 PUT /paseadores/update : successful  update" time="0.088">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-709 PUT /paseadores/update : wrong walker_ID" name="Update request Paseadores TC-709 PUT /paseadores/update : wrong walker_ID" time="0.014">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-710 PUT /paseadores/update/auth : correct credentials and new user" name="Update request Paseadores TC-710 PUT /paseadores/update/auth : correct credentials and new user" time="0.03">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-711 PUT /paseadores/update/auth: correct credentials , but new user already  in use" name="Update request Paseadores TC-711 PUT /paseadores/update/auth: correct credentials , but new user already  in use" time="0.01">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-712 PUT /paseadores/update/auth : wrong credential" name="Update request Paseadores TC-712 PUT /paseadores/update/auth : wrong credential" time="0.015">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-713 PUT /paseadores/update/auth : correct credentials and old user" name="Update request Paseadores TC-713 PUT /paseadores/update/auth : correct credentials and old user" time="0.025">
+    </testcase>
+  </testsuite>
+  <testsuite name="Log in request Clientes" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:18" time="0.825" tests="2">
+    <testcase classname="Log in request Clientes TC-306 POST /clientes/log: Correct credentials" name="Log in request Clientes TC-306 POST /clientes/log: Correct credentials" time="0.078">
+    </testcase>
+    <testcase classname="Log in request Clientes TC-307 POST /clientes/log: Wrong credentials" name="Log in request Clientes TC-307 POST /clientes/log: Wrong credentials" time="0.019">
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing mascotaVerification functions" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:19" time="1.232" tests="3">
+    <testcase classname="Testing mascotaVerification functions TC-24 checkID pet_token: pet_token correct" name="Testing mascotaVerification functions TC-24 checkID pet_token: pet_token correct" time="0.106">
+    </testcase>
+    <testcase classname="Testing mascotaVerification functions TC-25 checkID pet_token: pet_token incorrect" name="Testing mascotaVerification functions TC-25 checkID pet_token: pet_token incorrect" time="0.022">
+    </testcase>
+    <testcase classname="Testing mascotaVerification functions TC-26 checkID pet_token: 0 pet_token" name="Testing mascotaVerification functions TC-26 checkID pet_token: 0 pet_token" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create franjaHoraria" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:20" time="2.302" tests="3">
+    <testcase classname="Create franjaHoraria TC-401 POST /franjaHoraria/add : succesful add" name="Create franjaHoraria TC-401 POST /franjaHoraria/add : succesful add" time="0.245">
+    </testcase>
+    <testcase classname="Create franjaHoraria TC-402 POST /franjaHoraria/add : tieme range not valid " name="Create franjaHoraria TC-402 POST /franjaHoraria/add : tieme range not valid " time="0.014">
+    </testcase>
+    <testcase classname="Create franjaHoraria TC-403 POST /franjaHoraria/add : tieme range out of bounds " name="Create franjaHoraria TC-403 POST /franjaHoraria/add : tieme range out of bounds " time="0.017">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create , Update , Delete Admin" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:22" time="2.22" tests="4">
+    <testcase classname="Create , Update , Delete Admin TC-110 PUT /admin/restore/cliente: correct restoration" name="Create , Update , Delete Admin TC-110 PUT /admin/restore/cliente: correct restoration" time="0.22">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-111 PUT /admin/restore/cliente: Wrong client_ID" name="Create , Update , Delete Admin TC-111 PUT /admin/restore/cliente: Wrong client_ID" time="0.011">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-112 PUT /admin/restore/paseador: correct restoration" name="Create , Update , Delete Admin TC-112 PUT /admin/restore/paseador: correct restoration" time="0.066">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-113 PUT /admin/restore/paseador: Wrong walker_ID" name="Create , Update , Delete Admin TC-113 PUT /admin/restore/paseador: Wrong walker_ID" time="0.015">
+    </testcase>
+  </testsuite>
+  <testsuite name="Delete request Clientes" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:25" time="1.395" tests="2">
+    <testcase classname="Delete request Clientes TC-304 DELETE /clientes/delete/:client_ID : correct client_ID" name="Delete request Clientes TC-304 DELETE /clientes/delete/:client_ID : correct client_ID" time="0.113">
+    </testcase>
+    <testcase classname="Delete request Clientes TC-305 DELETE /clientes/delete/:client_ID : wrong client_ID" name="Delete request Clientes TC-305 DELETE /clientes/delete/:client_ID : wrong client_ID" time="0.028">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create request Paseadores" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:26" time="2.009" tests="3">
+    <testcase classname="Create request Paseadores TC-701 POST /paseadores/add : new paseador" name="Create request Paseadores TC-701 POST /paseadores/add : new paseador" time="0.165">
+    </testcase>
+    <testcase classname="Create request Paseadores TC-702 POST /paseadores/add : walker_ID already in use" name="Create request Paseadores TC-702 POST /paseadores/add : walker_ID already in use" time="0.132">
+    </testcase>
+    <testcase classname="Create request Paseadores TC-703 POST /paseadores/add: walker_user already in use" name="Create request Paseadores TC-703 POST /paseadores/add: walker_user already in use" time="0.013">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create  Location" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:28" time="0.999" tests="2">
+    <testcase classname="Create  Location TC-501 POST /locations/add : succesful add" name="Create  Location TC-501 POST /locations/add : succesful add" time="0.084">
+    </testcase>
+    <testcase classname="Create  Location TC-502 POST /locations/add : area_id does no exist " name="Create  Location TC-502 POST /locations/add : area_id does no exist " time="0.047">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create Area" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:29" time="0.719" tests="2">
+    <testcase classname="Create Area TC-201 POST /areas/add : succesful add" name="Create Area TC-201 POST /areas/add : succesful add" time="0.067">
+    </testcase>
+    <testcase classname="Create Area TC-202 POST /areas/add : location alredy exist" name="Create Area TC-202 POST /areas/add : location alredy exist" time="0.055">
+    </testcase>
+  </testsuite>
+  <testsuite name="Delete request Paseadores" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:30" time="0.703" tests="2">
+    <testcase classname="Delete request Paseadores TC-704 DELETE /paseadores/delete/:walker_ID : correct walker_ID " name="Delete request Paseadores TC-704 DELETE /paseadores/delete/:walker_ID : correct walker_ID " time="0.093">
+    </testcase>
+    <testcase classname="Delete request Paseadores TC-705 DELETE /paseadores/delete/:walker_ID : wrong  walker_ID" name="Delete request Paseadores TC-705 DELETE /paseadores/delete/:walker_ID : wrong  walker_ID" time="0.023">
+    </testcase>
+  </testsuite>
+  <testsuite name="Log in request Paseadores" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:31" time="0.709" tests="2">
+    <testcase classname="Log in request Paseadores RC-706 POST /paseadores/log: Correct credentials" name="Log in request Paseadores RC-706 POST /paseadores/log: Correct credentials" time="0.061">
+    </testcase>
+    <testcase classname="Log in request Paseadores TC-707 POST /paseadores/log: Wrong credentials" name="Log in request Paseadores TC-707 POST /paseadores/log: Wrong credentials" time="0.013">
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing adminVerification functions" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:31" time="0.466" tests="7">
+    <testcase classname="Testing adminVerification functions TC-01 checkCredentials admin: all correct" name="Testing adminVerification functions TC-01 checkCredentials admin: all correct" time="0.041">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-02 checkCredentials admin: password incorrect" name="Testing adminVerification functions TC-02 checkCredentials admin: password incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-03 checkCredentials admin: user incorrect" name="Testing adminVerification functions TC-03 checkCredentials admin: user incorrect" time="0.004">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-04 checkCredentials admin: empty parameters" name="Testing adminVerification functions TC-04 checkCredentials admin: empty parameters" time="0.003">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-05 checkUser admin: user correct" name="Testing adminVerification functions TC-05 checkUser admin: user correct" time="0.003">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-06 checkUser admin: user incorrect" name="Testing adminVerification functions TC-06 checkUser admin: user incorrect" time="0.002">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-07 checkUser admin: empty parameters" name="Testing adminVerification functions TC-07 checkUser admin: empty parameters" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing clientesVerification functions" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:36:32" time="0.461" tests="7">
+    <testcase classname="Testing clientesVerification functions TC-08 checkCredentials cliente: all correct" name="Testing clientesVerification functions TC-08 checkCredentials cliente: all correct" time="0.034">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-09 checkCredentials cliente: password incorrect" name="Testing clientesVerification functions TC-09 checkCredentials cliente: password incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-10 checkCredentials cliente: user incorrect" name="Testing clientesVerification functions TC-10 checkCredentials cliente: user incorrect" time="0.002">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-11 checkCredentials cliente: empty parameters" name="Testing clientesVerification functions TC-11 checkCredentials cliente: empty parameters" time="0.001">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-12 checkUser cliente: user correct" name="Testing clientesVerification functions TC-12 checkUser cliente: user correct" time="0.005">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-13 checkUser cliente: user incorrect" name="Testing clientesVerification functions TC-13 checkUser cliente: user incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-14 checkUser cliente: empty parameters" name="Testing clientesVerification functions TC-14 checkUser cliente: empty parameters" time="0.002">
+    </testcase>
+  </testsuite>
+</testsuites>

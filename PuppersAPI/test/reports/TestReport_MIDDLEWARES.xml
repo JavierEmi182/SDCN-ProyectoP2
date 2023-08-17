@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="13" failures="0" errors="0" time="1.932">
+  <testsuite name="Testing tokenVerified middlewares" errors="0" failures="0" skipped="0" timestamp="2023-08-15T22:27:30" time="1.844" tests="13">
+    <testcase classname="Testing tokenVerified middlewares TC-51: authChecker check no toke in send" name="Testing tokenVerified middlewares TC-51: authChecker check no toke in send" time="0.003">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-52: authChecker check token is from ADMIN" name="Testing tokenVerified middlewares TC-52: authChecker check token is from ADMIN" time="0.115">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-53: authChecker check token is from CLIENTE" name="Testing tokenVerified middlewares TC-53: authChecker check token is from CLIENTE" time="0.027">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-54: authChecker check token is from PASEADOR" name="Testing tokenVerified middlewares TC-54: authChecker check token is from PASEADOR" time="0.022">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-55: authChecker check token with wrong type" name="Testing tokenVerified middlewares TC-55: authChecker check token with wrong type" time="0.003">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-56: authChecker check token is not form the API" name="Testing tokenVerified middlewares TC-56: authChecker check token is not form the API" time="0.004">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-57: authGranter check that there was no TOKEN" name="Testing tokenVerified middlewares TC-57: authGranter check that there was no TOKEN" time="0">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-58: authGranter check locals.authType is not in the list " name="Testing tokenVerified middlewares TC-58: authGranter check locals.authType is not in the list " time="0">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-59: authGranter check that check locals.authType == PASEADOR can been granted auth" name="Testing tokenVerified middlewares TC-59: authGranter check that check locals.authType == PASEADOR can been granted auth" time="0">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-60: authGranter check that check locals.authType == CLIENTE is in the list for been granted auth" name="Testing tokenVerified middlewares TC-60: authGranter check that check locals.authType == CLIENTE is in the list for been granted auth" time="0.001">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-61: authGranter check that check locals.authType == ADMIN can been granted auth" name="Testing tokenVerified middlewares TC-61: authGranter check that check locals.authType == ADMIN can been granted auth" time="0">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-62: authGranter check that check locals.authType == ADMIN is in the list for been granted auth" name="Testing tokenVerified middlewares TC-62: authGranter check that check locals.authType == ADMIN is in the list for been granted auth" time="0">
+    </testcase>
+    <testcase classname="Testing tokenVerified middlewares TC-63: authGranter check that check locals.authType == PASEADOR is in the list for been granted auth" name="Testing tokenVerified middlewares TC-63: authGranter check that check locals.authType == PASEADOR is in the list for been granted auth" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

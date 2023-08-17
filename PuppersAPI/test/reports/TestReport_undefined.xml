@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="12" failures="0" errors="0" time="4.843">
+  <testsuite name="Create , Update and Delete Servicios" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:34:11" time="4.643" tests="12">
+    <testcase classname="Create , Update and Delete Servicios TC-901 POST /servicios/add : succesful add" name="Create , Update and Delete Servicios TC-901 POST /servicios/add : succesful add" time="0.343">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-902 POST /servicios/add : pet_token does no exist " name="Create , Update and Delete Servicios TC-902 POST /servicios/add : pet_token does no exist " time="0.094">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-903 POST /servicios/add : walker_ID does not exist" name="Create , Update and Delete Servicios TC-903 POST /servicios/add : walker_ID does not exist" time="0.085">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-904 POST /servicios/add : walker_ID not valid" name="Create , Update and Delete Servicios TC-904 POST /servicios/add : walker_ID not valid" time="0.055">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-905 POST /servicios/add : franja_id does no exist " name="Create , Update and Delete Servicios TC-905 POST /servicios/add : franja_id does no exist " time="0.161">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-906 DELETE /servicios/delete/:servicio_ID : correct servicio_ID " name="Create , Update and Delete Servicios TC-906 DELETE /servicios/delete/:servicio_ID : correct servicio_ID " time="0.033">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-907 DELETE /servicios/delete/:servicio_ID : wrong servicio_ID " name="Create , Update and Delete Servicios TC-907 DELETE /servicios/delete/:servicio_ID : wrong servicio_ID " time="0.034">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-908 PUT /servicios/update : successful update" name="Create , Update and Delete Servicios TC-908 PUT /servicios/update : successful update" time="0.095">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-909 PUT /servicios/update : walker_ID does not exist" name="Create , Update and Delete Servicios TC-909 PUT /servicios/update : walker_ID does not exist" time="0.103">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-910 PUT /servicios/update : walker_ID not valid" name="Create , Update and Delete Servicios TC-910 PUT /servicios/update : walker_ID not valid" time="0.048">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-911 PUT /servicios/update: franja_id does no exist " name="Create , Update and Delete Servicios TC-911 PUT /servicios/update: franja_id does no exist " time="0.086">
+    </testcase>
+    <testcase classname="Create , Update and Delete Servicios TC-912 PUT /servicios/update : servicio_ID does no exist" name="Create , Update and Delete Servicios TC-912 PUT /servicios/update : servicio_ID does no exist" time="0.086">
+    </testcase>
+  </testsuite>
+</testsuites>

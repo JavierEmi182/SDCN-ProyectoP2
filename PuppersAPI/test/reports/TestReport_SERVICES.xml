@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="26" failures="0" errors="0" time="3.46">
+  <testsuite name="Testing mascotaVerification functions" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:52" time="1.653" tests="3">
+    <testcase classname="Testing mascotaVerification functions TC-24 checkID pet_token: pet_token correct" name="Testing mascotaVerification functions TC-24 checkID pet_token: pet_token correct" time="0.117">
+    </testcase>
+    <testcase classname="Testing mascotaVerification functions TC-25 checkID pet_token: pet_token incorrect" name="Testing mascotaVerification functions TC-25 checkID pet_token: pet_token incorrect" time="0.019">
+    </testcase>
+    <testcase classname="Testing mascotaVerification functions TC-26 checkID pet_token: 0 pet_token" name="Testing mascotaVerification functions TC-26 checkID pet_token: 0 pet_token" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing paseadoresVerification functions" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:54" time="0.836" tests="9">
+    <testcase classname="Testing paseadoresVerification functions TC-15 checkCredentials paseador: all correct" name="Testing paseadoresVerification functions TC-15 checkCredentials paseador: all correct" time="0.046">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-16 checkCredentials paseador: password incorrect" name="Testing paseadoresVerification functions TC-16 checkCredentials paseador: password incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-17 checkCredentials paseador: user incorrect" name="Testing paseadoresVerification functions TC-17 checkCredentials paseador: user incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-18 checkCredentials paseador: empty parameters" name="Testing paseadoresVerification functions TC-18 checkCredentials paseador: empty parameters" time="0.003">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-19 checkUser paseador: user correct" name="Testing paseadoresVerification functions TC-19 checkUser paseador: user correct" time="0.006">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-20 checkUser paseador: user incorrect" name="Testing paseadoresVerification functions TC-20 checkUser paseador: user incorrect" time="0.002">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-21 checkUser paseador: empty parameters" name="Testing paseadoresVerification functions TC-21 checkUser paseador: empty parameters" time="0.002">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-22 checkID walker_ID: pet_token correct" name="Testing paseadoresVerification functions TC-22 checkID walker_ID: pet_token correct" time="0.034">
+    </testcase>
+    <testcase classname="Testing paseadoresVerification functions TC-23 checkID walker_ID: walker_ID incorrect" name="Testing paseadoresVerification functions TC-23 checkID walker_ID: walker_ID incorrect" time="0.024">
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing adminVerification functions" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:55" time="0.413" tests="7">
+    <testcase classname="Testing adminVerification functions TC-01 checkCredentials admin: all correct" name="Testing adminVerification functions TC-01 checkCredentials admin: all correct" time="0.033">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-02 checkCredentials admin: password incorrect" name="Testing adminVerification functions TC-02 checkCredentials admin: password incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-03 checkCredentials admin: user incorrect" name="Testing adminVerification functions TC-03 checkCredentials admin: user incorrect" time="0.003">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-04 checkCredentials admin: empty parameters" name="Testing adminVerification functions TC-04 checkCredentials admin: empty parameters" time="0.004">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-05 checkUser admin: user correct" name="Testing adminVerification functions TC-05 checkUser admin: user correct" time="0.003">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-06 checkUser admin: user incorrect" name="Testing adminVerification functions TC-06 checkUser admin: user incorrect" time="0.002">
+    </testcase>
+    <testcase classname="Testing adminVerification functions TC-07 checkUser admin: empty parameters" name="Testing adminVerification functions TC-07 checkUser admin: empty parameters" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing clientesVerification functions" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:55" time="0.366" tests="7">
+    <testcase classname="Testing clientesVerification functions TC-08 checkCredentials cliente: all correct" name="Testing clientesVerification functions TC-08 checkCredentials cliente: all correct" time="0.031">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-09 checkCredentials cliente: password incorrect" name="Testing clientesVerification functions TC-09 checkCredentials cliente: password incorrect" time="0.002">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-10 checkCredentials cliente: user incorrect" name="Testing clientesVerification functions TC-10 checkCredentials cliente: user incorrect" time="0.002">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-11 checkCredentials cliente: empty parameters" name="Testing clientesVerification functions TC-11 checkCredentials cliente: empty parameters" time="0.001">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-12 checkUser cliente: user correct" name="Testing clientesVerification functions TC-12 checkUser cliente: user correct" time="0.002">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-13 checkUser cliente: user incorrect" name="Testing clientesVerification functions TC-13 checkUser cliente: user incorrect" time="0.002">
+    </testcase>
+    <testcase classname="Testing clientesVerification functions TC-14 checkUser cliente: empty parameters" name="Testing clientesVerification functions TC-14 checkUser cliente: empty parameters" time="0.003">
+    </testcase>
+  </testsuite>
+</testsuites>

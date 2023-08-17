@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="71" failures="5" errors="0" time="13.495">
+  <testsuite name="Create and Delete  Servicios" errors="0" failures="5" skipped="0" timestamp="2023-08-16T21:03:07" time="2.295" tests="12">
+    <testcase classname="Create and Delete  Servicios TC-901 POST /servicios/add : succesful add" name="Create and Delete  Servicios TC-901 POST /servicios/add : succesful add" time="0.196">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-902 POST /servicios/add : pet_token does no exist " name="Create and Delete  Servicios TC-902 POST /servicios/add : pet_token does no exist " time="0.046">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-903 POST /servicios/add : walker_ID does not exist" name="Create and Delete  Servicios TC-903 POST /servicios/add : walker_ID does not exist" time="0.048">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-904 POST /servicios/add : walker_ID not valid" name="Create and Delete  Servicios TC-904 POST /servicios/add : walker_ID not valid" time="0.026">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-905 POST /servicios/add : franja_id does no exist " name="Create and Delete  Servicios TC-905 POST /servicios/add : franja_id does no exist " time="0.077">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-906 DELETE /servicios/delete/:servicio_ID : correct servicio_ID " name="Create and Delete  Servicios TC-906 DELETE /servicios/delete/:servicio_ID : correct servicio_ID " time="0.018">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-907 DELETE /servicios/delete/:servicio_ID : wrong servicio_ID " name="Create and Delete  Servicios TC-907 DELETE /servicios/delete/:servicio_ID : wrong servicio_ID " time="0.012">
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-908 PUT /servicios/update : successful update" name="Create and Delete  Servicios TC-908 PUT /servicios/update : successful update" time="0.039">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 201
+Received: 404
+    at Object.toBe (C:\Users\LENOVO\Downloads\ProyectoIsof\PuppersApp\DogWalker_API\test\endpoint\servicio\servicio.test.js:169:29)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-909 PUT /servicios/update : walker_ID does not exist" name="Create and Delete  Servicios TC-909 PUT /servicios/update : walker_ID does not exist" time="0.031">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 409
+Received: 404
+    at Object.toBe (C:\Users\LENOVO\Downloads\ProyectoIsof\PuppersApp\DogWalker_API\test\endpoint\servicio\servicio.test.js:204:28)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-910 PUT /servicios/update : walker_ID not valid" name="Create and Delete  Servicios TC-910 PUT /servicios/update : walker_ID not valid" time="0.019">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 409
+Received: 404
+    at Object.toBe (C:\Users\LENOVO\Downloads\ProyectoIsof\PuppersApp\DogWalker_API\test\endpoint\servicio\servicio.test.js:231:28)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-911 PUT /servicios/update: franja_id does no exist " name="Create and Delete  Servicios TC-911 PUT /servicios/update: franja_id does no exist " time="0.034">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 400
+Received: 404
+    at Object.toBe (C:\Users\LENOVO\Downloads\ProyectoIsof\PuppersApp\DogWalker_API\test\endpoint\servicio\servicio.test.js:262:28)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+    <testcase classname="Create and Delete  Servicios TC-912 PUT /servicios/update : servicio_ID does no exist " name="Create and Delete  Servicios TC-912 PUT /servicios/update : servicio_ID does no exist " time="0.031">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 404
+Received: 429
+    at Object.toBe (C:\Users\LENOVO\Downloads\ProyectoIsof\PuppersApp\DogWalker_API\test\endpoint\servicio\servicio.test.js:297:28)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Start and end request for Paseo" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:09" time="0.878" tests="5">
+    <testcase classname="Start and end request for Paseo TC-801 POST /paseos/start : succesful start" name="Start and end request for Paseo TC-801 POST /paseos/start : succesful start" time="0.075">
+    </testcase>
+    <testcase classname="Start and end request for Paseo TC-802 POST /paseos/start : wrong ids for start " name="Start and end request for Paseo TC-802 POST /paseos/start : wrong ids for start " time="0.051">
+    </testcase>
+    <testcase classname="Start and end request for Paseo TC-803 PUT /paseos/end : successful  end" name="Start and end request for Paseo TC-803 PUT /paseos/end : successful  end" time="0.037">
+    </testcase>
+    <testcase classname="Start and end request for Paseo TC-804 PUT /paseos/end : wrong paseo_ID for end" name="Start and end request for Paseo TC-804 PUT /paseos/end : wrong paseo_ID for end" time="0.018">
+    </testcase>
+    <testcase classname="Start and end request for Paseo TC-805 PUT /paseos/end : paseo already ended for end" name="Start and end request for Paseo TC-805 PUT /paseos/end : paseo already ended for end" time="0.039">
+    </testcase>
+  </testsuite>
+  <testsuite name="Update request Paseadores" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:10" time="0.777" tests="6">
+    <testcase classname="Update request Paseadores TC-708 PUT /paseadores/update : successful  update" name="Update request Paseadores TC-708 PUT /paseadores/update : successful  update" time="0.081">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-709 PUT /paseadores/update : wrong walker_ID" name="Update request Paseadores TC-709 PUT /paseadores/update : wrong walker_ID" time="0.016">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-710 PUT /paseadores/update/auth : correct credentials and new user" name="Update request Paseadores TC-710 PUT /paseadores/update/auth : correct credentials and new user" time="0.037">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-711 PUT /paseadores/update/auth: correct credentials , but new user already  in use" name="Update request Paseadores TC-711 PUT /paseadores/update/auth: correct credentials , but new user already  in use" time="0.012">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-712 PUT /paseadores/update/auth : wrong credential" name="Update request Paseadores TC-712 PUT /paseadores/update/auth : wrong credential" time="0.022">
+    </testcase>
+    <testcase classname="Update request Paseadores TC-713 PUT /paseadores/update/auth : correct credentials and old user" name="Update request Paseadores TC-713 PUT /paseadores/update/auth : correct credentials and old user" time="0.032">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create , Update , Delete Mascotas" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:11" time="0.854" tests="7">
+    <testcase classname="Create , Update , Delete Mascotas TC-601 POST /mascotas/add : successful  add" name="Create , Update , Delete Mascotas TC-601 POST /mascotas/add : successful  add" time="0.096">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-602 POST /mascotas/add : client_ID does no exist " name="Create , Update , Delete Mascotas TC-602 POST /mascotas/add : client_ID does no exist " time="0.052">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-603 PUT /mascotas/update : correct pet_token" name="Create , Update , Delete Mascotas TC-603 PUT /mascotas/update : correct pet_token" time="0.033">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-604 PUT /mascotas/update : wrong pet_token" name="Create , Update , Delete Mascotas TC-604 PUT /mascotas/update : wrong pet_token" time="0.022">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-605 PUT /mascotas/update : client_ID does no exist" name="Create , Update , Delete Mascotas TC-605 PUT /mascotas/update : client_ID does no exist" time="0.021">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-606 DELETE /mascotas/delete/:pet_token : correct pet_token" name="Create , Update , Delete Mascotas TC-606 DELETE /mascotas/delete/:pet_token : correct pet_token" time="0.029">
+    </testcase>
+    <testcase classname="Create , Update , Delete Mascotas TC-607 DELETE /mascotas/delete/:pet_token : wrong pet_token" name="Create , Update , Delete Mascotas TC-607 DELETE /mascotas/delete/:pet_token : wrong pet_token" time="0.019">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create request Clientes" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:12" time="0.735" tests="3">
+    <testcase classname="Create request Clientes TC-301 POST /clientes/add: new cliente" name="Create request Clientes TC-301 POST /clientes/add: new cliente" time="0.093">
+    </testcase>
+    <testcase classname="Create request Clientes TC-302 POST /clientes/add : client_ID already in use" name="Create request Clientes TC-302 POST /clientes/add : client_ID already in use" time="0.057">
+    </testcase>
+    <testcase classname="Create request Clientes TC-303 POST /clientes/add: client_user already in use" name="Create request Clientes TC-303 POST /clientes/add: client_user already in use" time="0.016">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create  Location" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:12" time="0.694" tests="2">
+    <testcase classname="Create  Location TC-501 POST /locations/add : successful  add" name="Create  Location TC-501 POST /locations/add : successful  add" time="0.08">
+    </testcase>
+    <testcase classname="Create  Location TC-502 POST /locations/add : area_id does not exist " name="Create  Location TC-502 POST /locations/add : area_id does not exist " time="0.051">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create , Update , Delete Admin" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:13" time="0.749" tests="10">
+    <testcase classname="Create , Update , Delete Admin TC-101 POST /admin/add: new user " name="Create , Update , Delete Admin TC-101 POST /admin/add: new user " time="0.066">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-102 POST /admin/add:  already existing admin_username" name="Create , Update , Delete Admin TC-102 POST /admin/add:  already existing admin_username" time="0.013">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-103 POST /admin/log: correct credentials" name="Create , Update , Delete Admin TC-103 POST /admin/log: correct credentials" time="0.009">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-104 POST /admin/log: Wrong credentials " name="Create , Update , Delete Admin TC-104 POST /admin/log: Wrong credentials " time="0.016">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-105 PUT /admin/update/auth: correct credentials and new user " name="Create , Update , Delete Admin TC-105 PUT /admin/update/auth: correct credentials and new user " time="0.025">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-110 PUT /admin/update/auth: correct credentials and old user " name="Create , Update , Delete Admin TC-110 PUT /admin/update/auth: correct credentials and old user " time="0.026">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-106 PUT /admin/update/auth: correct credentials and new user alredy in use" name="Create , Update , Delete Admin TC-106 PUT /admin/update/auth: correct credentials and new user alredy in use" time="0.008">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-107 PUT /admin/update/auth: wrong credentials" name="Create , Update , Delete Admin TC-107 PUT /admin/update/auth: wrong credentials" time="0.014">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-108 DELETE /admin/delete/:admin_username : correct admin_username" name="Create , Update , Delete Admin TC-108 DELETE /admin/delete/:admin_username : correct admin_username" time="0.017">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-109 DELETE /admin/delete/:admin_username : wrong admin_username" name="Create , Update , Delete Admin TC-109 DELETE /admin/delete/:admin_username : wrong admin_username" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="Update request Clientes" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:14" time="0.692" tests="6">
+    <testcase classname="Update request Clientes TC-308 PUT /clientes/update : successful  update" name="Update request Clientes TC-308 PUT /clientes/update : successful  update" time="0.087">
+    </testcase>
+    <testcase classname="Update request Clientes TC-309 PUT /clientes/update : wrong client_ID" name="Update request Clientes TC-309 PUT /clientes/update : wrong client_ID" time="0.014">
+    </testcase>
+    <testcase classname="Update request Clientes TC-310 PUT /clientes/update/auth: correct credentials and new user" name="Update request Clientes TC-310 PUT /clientes/update/auth: correct credentials and new user" time="0.035">
+    </testcase>
+    <testcase classname="Update request Clientes TC-311 PUT /clientes/update/auth: correct credentials , but new user already  in use" name="Update request Clientes TC-311 PUT /clientes/update/auth: correct credentials , but new user already  in use" time="0.009">
+    </testcase>
+    <testcase classname="Update request Clientes TC-312 PUT /clientes/update/auth: wrong credentials" name="Update request Clientes TC-312 PUT /clientes/update/auth: wrong credentials" time="0.008">
+    </testcase>
+    <testcase classname="Update request Clientes TC-313 PUT /clientes/update/auth: correct credentials and old user" name="Update request Clientes TC-313 PUT /clientes/update/auth: correct credentials and old user" time="0.027">
+    </testcase>
+  </testsuite>
+  <testsuite name="Log in request Clientes" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:15" time="0.586" tests="2">
+    <testcase classname="Log in request Clientes TC-306 POST /clientes/log: Correct credentials" name="Log in request Clientes TC-306 POST /clientes/log: Correct credentials" time="0.06">
+    </testcase>
+    <testcase classname="Log in request Clientes TC-307 POST /clientes/log: Wrong credentials" name="Log in request Clientes TC-307 POST /clientes/log: Wrong credentials" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create franjaHoraria" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:15" time="0.585" tests="3">
+    <testcase classname="Create franjaHoraria TC-401 POST /franjaHoraria/add : successful  add" name="Create franjaHoraria TC-401 POST /franjaHoraria/add : successful  add" time="0.071">
+    </testcase>
+    <testcase classname="Create franjaHoraria TC-402 POST /franjaHoraria/add : time range not valid " name="Create franjaHoraria TC-402 POST /franjaHoraria/add : time range not valid " time="0.004">
+    </testcase>
+    <testcase classname="Create franjaHoraria TC-403 POST /franjaHoraria/add : time range out of bounds " name="Create franjaHoraria TC-403 POST /franjaHoraria/add : time range out of bounds " time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create Area" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:16" time="0.614" tests="2">
+    <testcase classname="Create Area TC-201 POST /areas/add : successful add" name="Create Area TC-201 POST /areas/add : successful add" time="0.067">
+    </testcase>
+    <testcase classname="Create Area TC-202 POST /areas/add : location already exist" name="Create Area TC-202 POST /areas/add : location already exist" time="0.039">
+    </testcase>
+  </testsuite>
+  <testsuite name="Delete request Clientes" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:17" time="0.606" tests="2">
+    <testcase classname="Delete request Clientes TC-304 DELETE /clientes/delete/:client_ID : correct client_ID" name="Delete request Clientes TC-304 DELETE /clientes/delete/:client_ID : correct client_ID" time="0.08">
+    </testcase>
+    <testcase classname="Delete request Clientes TC-305 DELETE /clientes/delete/:client_ID : wrong client_ID" name="Delete request Clientes TC-305 DELETE /clientes/delete/:client_ID : wrong client_ID" time="0.021">
+    </testcase>
+  </testsuite>
+  <testsuite name="Delete request Paseadores" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:17" time="0.692" tests="2">
+    <testcase classname="Delete request Paseadores TC-704 DELETE /paseadores/delete/:walker_ID : correct walker_ID " name="Delete request Paseadores TC-704 DELETE /paseadores/delete/:walker_ID : correct walker_ID " time="0.158">
+    </testcase>
+    <testcase classname="Delete request Paseadores TC-705 DELETE /paseadores/delete/:walker_ID : wrong  walker_ID" name="Delete request Paseadores TC-705 DELETE /paseadores/delete/:walker_ID : wrong  walker_ID" time="0.023">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create , Update , Delete Admin" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:18" time="0.834" tests="4">
+    <testcase classname="Create , Update , Delete Admin TC-110 PUT /admin/restore/cliente: correct restoration" name="Create , Update , Delete Admin TC-110 PUT /admin/restore/cliente: correct restoration" time="0.144">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-111 PUT /admin/restore/cliente: Wrong client_ID" name="Create , Update , Delete Admin TC-111 PUT /admin/restore/cliente: Wrong client_ID" time="0.008">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-112 PUT /admin/restore/paseador: correct restoration" name="Create , Update , Delete Admin TC-112 PUT /admin/restore/paseador: correct restoration" time="0.033">
+    </testcase>
+    <testcase classname="Create , Update , Delete Admin TC-113 PUT /admin/restore/paseador: Wrong walker_ID" name="Create , Update , Delete Admin TC-113 PUT /admin/restore/paseador: Wrong walker_ID" time="0.006">
+    </testcase>
+  </testsuite>
+  <testsuite name="Create request Paseadores" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:19" time="0.729" tests="3">
+    <testcase classname="Create request Paseadores TC-701 POST /paseadores/add : new paseador" name="Create request Paseadores TC-701 POST /paseadores/add : new paseador" time="0.073">
+    </testcase>
+    <testcase classname="Create request Paseadores TC-702 POST /paseadores/add : walker_ID already in use" name="Create request Paseadores TC-702 POST /paseadores/add : walker_ID already in use" time="0.046">
+    </testcase>
+    <testcase classname="Create request Paseadores TC-703 POST /paseadores/add: walker_user already in use" name="Create request Paseadores TC-703 POST /paseadores/add: walker_user already in use" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="Log in request Paseadores" errors="0" failures="0" skipped="0" timestamp="2023-08-16T21:03:20" time="0.598" tests="2">
+    <testcase classname="Log in request Paseadores RC-706 POST /paseadores/log: Correct credentials" name="Log in request Paseadores RC-706 POST /paseadores/log: Correct credentials" time="0.052">
+    </testcase>
+    <testcase classname="Log in request Paseadores TC-707 POST /paseadores/log: Wrong credentials" name="Log in request Paseadores TC-707 POST /paseadores/log: Wrong credentials" time="0.015">
+    </testcase>
+  </testsuite>
+</testsuites>
