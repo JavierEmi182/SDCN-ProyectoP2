@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside" *ngIf="dataready">
+        <div class="botontext">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/manageboard">
+              <mat-icon color="accent">arrow_back</mat-icon>
+            </button>
+            <h5>Volver</h5>
+        </div>
+        <h4>Informacion de Servicio {{servicioAc.servicio_ID}}</h4>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" routerLink="/editServicio/{{servicioAc.servicio_ID}}" >Editar</button>
+            <button mat-raised-button color="primary" (click)="generateRef()" >Generar codigo de referencia</button>
+            <button mat-raised-button color="accent" (click)="renewService()" >Renovar Servicio</button>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-list>
+            <div mat-subheader>Datos</div>
+            <mat-list-item>
+              <mat-icon matListItemIcon>search</mat-icon>
+              <div matListItemTitle>{{servicioAc.servicio_ID}}</div>
+              <div matListItemLine>ID de Servicio</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListItemIcon>pets</mat-icon>
+              <div matListItemTitle>{{mascotaInf.pet_name}}</div>
+              <div matListItemLine>Mascota con servicio contratado</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>assignment_ind</mat-icon>
+                <div matListItemTitle>{{paseador.walker_name}}</div>
+                <div matListItemLine>Paseador asignado</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListItemIcon>access_time</mat-icon>
+              <div matListItemTitle>{{fi.convertido}}</div>
+              <div matListItemLine>Franja Horaria</div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <div *ngIf="paseosDoneReady">
+            <div mat-subheader>Paseos realizados:</div>
+            <mat-list-item *ngFor="let paseo of arr">
+              <div matListItemTitle>{{paseo.no}}. {{paseo.walker_name}} - {{paseo.fecha}}</div>
+              <div matListItemLine>Paseador - Fecha</div>
+            </mat-list-item>
+
+          </div>
+
+          <div *ngIf="code">
+            <mat-divider></mat-divider>
+            <div mat-subheader>Codigo de referencia:</div>
+            <mat-list-item>
+              <mat-icon matListItemIcon>how_to_reg</mat-icon>
+              <div matListItemTitle>{{codigoRef}}</div>
+              <div matListItemLine>Codigo de Referencia</div>
+            </mat-list-item>
+            
+          </div>
+
+
+            
+            
+          </mat-list>
+
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="del()">Eliminar</button>
+            <button mat-raised-button color="accent" routerLink="/manageboard">Volver</button>
+          </div>
+        
+        
+
+        
+
+    </div>
+
+
+</div>

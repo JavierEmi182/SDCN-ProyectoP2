@@ -1,0 +1,23 @@
+<mat-grid-list cols="1" rowHeight="20:1" class="pickers">
+    <mat-grid-tile class="fila1">
+
+        <mat-form-field>
+            <mat-label>Area:</mat-label>
+    
+            <mat-select [(value)]="selectedArea">
+              <mat-option value="default">Selecciona un Area</mat-option>
+              <div *ngFor="let area of areas">
+                <mat-option value="{{area.area_id}}" (click)="cargarFechasCalendar()">{{area.area_name}}</mat-option>
+              </div>
+            </mat-select>
+        </mat-form-field>
+
+
+
+
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div class="calendar">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+</div>

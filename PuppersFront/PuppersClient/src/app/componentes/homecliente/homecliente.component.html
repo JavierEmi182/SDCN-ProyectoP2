@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div style="background-color: black; " class="titles" *ngFor="let c of cliente" >
+    <h2>Hola {{c.client_name}} ! </h2>
+    <h3>Selecciona tu mascota:</h3>
+    
+</div>
+
+
+<div class="fx" >
+    <mat-form-field >
+        <mat-label >Mascotas: </mat-label>
+        <mat-select [(value)]="selected" >
+            <div *ngFor="let foto of mascotas">
+                
+                <mat-option value="admin" routerLink="/cliente/{{foto.pet_token}}">{{foto.pet_name}}</mat-option>
+                
+           
+            </div>
+        </mat-select>
+        </mat-form-field> 
+    
+      
+
+      
+      
+        <img src="../../../assets/img/homecliente.jpg">
+     
+</div>
+
+<div class="logo">
+    <img src="../../../assets/img/puppets.png"> 
+</div> 
+
+
+
+
+

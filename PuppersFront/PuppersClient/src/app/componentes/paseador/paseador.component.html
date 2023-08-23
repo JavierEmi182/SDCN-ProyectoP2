@@ -1,0 +1,113 @@
+<app-navbar></app-navbar>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div style="background-color: black; " class="titles" *ngFor="let p of paseador">
+    <h2>Actividad: Paseo</h2>
+    <h3>Hola {{p.walker_name}} !</h3>
+    <h3>¿Listo para el paseo?</h3>
+    
+</div>
+<mat-grid-list cols="1" rowHeight="3:1" gutterSize="40px" >
+    <mat-grid-tile class="cu1">
+        <mat-card class="example-card" >
+            
+            
+            <mat-card-content *ngIf="mostrar" class="select"><mat-icon >pets</mat-icon> Selecciona tú mascota</mat-card-content>
+            <mat-form-field *ngIf="mostrar">
+              <mat-label >Mascotas: </mat-label>
+              <mat-select [(value)]="selected" >
+                <div *ngFor="let foto of mascotas">
+                    
+                    <mat-option value="{{foto.pet_token}}" (click)="obtenerDatosVista()" > {{foto.pet_name}} </mat-option>
+                    
+
+                </div>
+                
+            </mat-select>
+            
+            
+              </mat-form-field>
+             
+                
+              <mat-form-field *ngIf="mostrar2">
+                <mat-label>O ingrese su código referencial </mat-label>
+              
+                <input matInput [formControl]="codigo" [value]="codigo" type="number" >
+                
+                
+            </mat-form-field>
+            
+            <div *ngIf="mostrar2">
+              <button class="btn btn-form"  (click)="onSubmitCodigo()">
+                Enviar Código
+              </button>
+            </div>
+          </mat-card>
+        
+    </mat-grid-tile>
+    
+
+
+    <mat-grid-tile>
+        <mat-card class="example-card c2"  >
+          <div *ngIf="selected">
+
+            <mat-card-content *ngFor="let c of cliente"> <mat-icon >pets</mat-icon> Datos del cliente<br>Nombre: {{c.client_name }}<br>Teléfono: {{c.client_tel}} <br>Raza de la mascota: {{mascotabreed}}<br>Localización: {{areaname}}, {{location2}}  </mat-card-content>
+           
+          </div>
+            
+          </mat-card>
+          
+    </mat-grid-tile>
+
+
+
+    <mat-grid-tile>
+      <mat-card class="example-card c3"  >
+          
+          <mat-card-content>
+            <mat-icon >pets</mat-icon> Marcar recepción de Mascota
+          </mat-card-content>
+          <div>
+            <button class="btn btn-primary btn-block " (click)="onSubmitInicio()">
+              Iniciar paseo
+            </button>
+          </div>
+          
+
+          
+          
+          
+          
+        </mat-card>
+        
+  </mat-grid-tile>
+  
+  <mat-grid-tile>
+    <mat-card class="example-card c4"  >
+      <mat-card-content *ngIf="selected"><mat-icon >pets</mat-icon> Foto del paseo:</mat-card-content>
+      <input type="file" *ngIf="selected" accept=".jpg, .png, .jpeg" required (change)="onFileChange($event)">
+
+  <mat-card-content>
+    <mat-icon >pets</mat-icon> Marcar finalización del paseo
+  </mat-card-content>
+  <div>
+    <button class="btn btn-primary btn-block" (click)="onSubmitFin()">
+    Finalizar paseo
+  </button>
+
+  </div>
+  
+
+</mat-card>
+        
+</mat-grid-tile>
+
+ 
+  </mat-grid-list> 
+
+  
+
+  <div class="logo">
+    <img src="../../../assets/img/puppets.png"> 
+</div>
+

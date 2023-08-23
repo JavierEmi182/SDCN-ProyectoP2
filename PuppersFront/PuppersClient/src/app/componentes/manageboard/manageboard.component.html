@@ -1,0 +1,251 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside">
+        <mat-grid-list cols="1" rowHeight="20:1" class="pickers">
+            <mat-grid-tile class="fila1">
+              <mat-form-field>
+                <mat-label>Ver:</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="option1" (click)="obtenerDatosVista()">Paseadores</mat-option>
+                  <mat-option value="option2" (click)="obtenerDatosVista()">Clientes</mat-option>
+                  <mat-option value="option3" (click)="obtenerDatosVista()">Mascotas</mat-option>
+                  <mat-option value="option4" (click)="obtenerDatosVista()">Servicios</mat-option>
+
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile class="fila1">
+              <mat-form-field *ngIf="serviciosclick">
+                <mat-label>Ver Servicios:</mat-label>
+                <mat-select [(value)]="selectedServiciosVer">
+                  <mat-option value="option1" (click)="obtenerDatosVista()">Todos los servicios</mat-option>
+                  <mat-option value="option2" (click)="obtenerDatosVista()">Servicios Activos</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <div class="tabla" *ngIf="servicios">
+          <div class="botontext">
+            <h3>Servicios</h3>
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/addServicio">
+              <mat-icon color="accent">add_circle_outline</mat-icon>
+            </button>
+          </div>
+          
+          <table mat-table [dataSource]="listamostrar" class="mat-elevation-z0">
+
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="ID">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.servicio_ID}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="pet">
+                <th mat-header-cell *matHeaderCellDef> Mascota </th>
+                <td mat-cell *matCellDef="let element"> {{element.pet}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="serv">
+                <th mat-header-cell *matHeaderCellDef> Tipo de Paseo </th>
+                <td mat-cell *matCellDef="let element"> {{element.servicio}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="walker">
+                <th mat-header-cell *matHeaderCellDef> Paseador </th>
+                <td mat-cell *matCellDef="let element"> {{element.paseador}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="loca">
+                <th mat-header-cell *matHeaderCellDef> Localizacion </th>
+                <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="time">
+                  <th mat-header-cell *matHeaderCellDef> Franja Horaria </th>
+                  <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> </th>
+                  <td mat-cell *matCellDef="let element">
+                      <button mat-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/adminServicio/{{element.servicio_ID}}">
+                          <mat-icon color="accent">keyboard_arrow_right</mat-icon>
+                      </button> 
+                  </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </div>
+
+
+
+
+
+
+        
+        <div class="tabla" *ngIf="cliente">
+            <div class="botontext">
+              <h3>Clientes</h3>
+              <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/addCliente">
+                <mat-icon color="accent">add_circle_outline</mat-icon>
+              </button>
+            </div>
+            
+            <table mat-table [dataSource]="listamostrar" class="mat-elevation-z0">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                  <td mat-cell *matCellDef="let element"> {{element.client_name}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="tel">
+                  <th mat-header-cell *matHeaderCellDef> Telefono </th>
+                  <td mat-cell *matCellDef="let element"> {{element.client_tel}} </td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="area">
+                  <th mat-header-cell *matHeaderCellDef> Area </th>
+                  <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="location">
+                    <th mat-header-cell *matHeaderCellDef> Localizacion</th>
+                    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de Registro </th>
+                    <td mat-cell *matCellDef="let element"> {{element.start_date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/adminCliente/{{element.client_ID}}">
+                            <mat-icon color="accent">keyboard_arrow_right</mat-icon>
+                        </button> 
+                    </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+        </div>
+        <div class="tabla" *ngIf="paseador">
+            <div class="botontext">
+              <h3>Paseadores</h3>
+              <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/addPaseador">
+                <mat-icon color="accent">add_circle_outline</mat-icon>
+              </button>
+            </div>
+            <table mat-table [dataSource]="listamostrar" class="mat-elevation-z0">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="ID">
+                  <th mat-header-cell *matHeaderCellDef> Cedula </th>
+                  <td mat-cell *matCellDef="let element"> {{element.walker_ID}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                  <td mat-cell *matCellDef="let element"> {{element.walker_name}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="tel">
+                  <th mat-header-cell *matHeaderCellDef> Telefono </th>
+                  <td mat-cell *matCellDef="let element"> {{element.walker_tel}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de Registro </th>
+                    <td mat-cell *matCellDef="let element"> {{element.start_date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/adminPaseador/{{element.walker_ID}}">
+                            <mat-icon color="accent">keyboard_arrow_right</mat-icon>
+                        </button>  
+                    </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <div class="tabla" *ngIf="mascota">
+
+            <div class="botontext">
+              <h3>Mascotas</h3>
+              <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/addMascota">
+                <mat-icon color="accent">add_circle_outline</mat-icon>
+              </button>
+            </div>
+            <table mat-table [dataSource]="listamostrar" class="mat-elevation-z0">
+                <!-- Position Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Mascota </th>
+                  <td mat-cell *matCellDef="let element"> {{element.pet_name}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="breed">
+                    <th mat-header-cell *matHeaderCellDef> Raza</th>
+                    <td mat-cell *matCellDef="let element"> {{element.pet_breed}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="service">
+                  <th mat-header-cell *matHeaderCellDef> Servicio </th>
+                  <td mat-cell *matCellDef="let element"> {{element.service}} </td>
+                </ng-container>
+              
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/adminMascota/{{element.pet_token}}">
+                            <mat-icon color="accent">keyboard_arrow_right</mat-icon>
+                        </button> 
+                    </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+
+        
+
+    </div>
+
+
+</div>

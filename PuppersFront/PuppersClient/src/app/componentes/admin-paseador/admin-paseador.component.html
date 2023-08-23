@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside">
+        <div class="botontext">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/manageboard">
+              <mat-icon color="accent">arrow_back</mat-icon>
+            </button>
+            <h5>Volver</h5>
+        </div>
+        <h4>Informacion de {{paseadorInfo.walker_name}}</h4>
+        <div class="example-button-row">
+          <button mat-raised-button color="primary" routerLink="/editPaseador/{{paseadorInfo.walker_ID}}" >Editar</button>
+          
+        </div>
+        <mat-divider></mat-divider>
+        <mat-list>
+            <div mat-subheader>Foto:</div>
+            <div class="imagedivprof">
+              <img class="profile-pic" src="{{link}}">
+            </div>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Datos</div>
+            <mat-list-item>
+              <mat-icon matListItemIcon>face</mat-icon>
+              <div matListItemTitle>{{paseadorInfo.walker_name}}</div>
+              <div matListItemLine>Nombre</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListItemIcon>opacity</mat-icon>
+              <div matListItemTitle>{{paseadorInfo.walker_bloodtype}}</div>
+              <div matListItemLine>Tipo de Sangre</div>
+          </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>location_searching</mat-icon>
+                <div matListItemTitle>{{paseadorInfo.walker_address}}</div>
+                <div matListItemLine>Direccion</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListItemIcon>location_on</mat-icon>
+              <div matListItemTitle><a href="{{paseadorInfo.walker_linkaddress}}">{{paseadorInfo.walker_linkaddress}}</a></div>
+              <div matListItemLine>Link de direccion</div>
+          </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>phone_android</mat-icon>
+                <div matListItemTitle>{{paseadorInfo.walker_tel}}</div>
+                <div matListItemLine>Celular</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>perm_identity</mat-icon>
+                <div matListItemTitle>{{paseadorInfo.walker_user}}</div>
+                <div matListItemLine>Usuario</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>featured_video</mat-icon>
+                <div matListItemTitle>{{paseadorInfo.walker_ID}}</div>
+                <div matListItemLine>Cedula</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>assignment_ind</mat-icon>
+                <div matListItemTitle>{{paseadorInfo.start_date}}</div>
+                <div matListItemLine>Fecha de Inicio</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Mascotas Asignadas</div>
+            <mat-list-item *ngFor="let mascota of mascotasAsignadas">
+              <mat-icon matListItemIcon color="accent">pets</mat-icon>
+              <div matListItemTitle>{{mascota.pet_name}}</div>
+              <div matListItemLine>{{mascota.pet_breed}}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Paseos Realizados en Total: </div>
+            <mat-list-item>
+              <mat-icon matListItemIcon>assessment</mat-icon>
+              <div matListItemTitle>{{count}}</div>
+              <div matListItemLine>Paseos totales</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Calcular Pagos por Paseos Mensuales: </div>
+            <mat-form-field>
+              <mat-label>Mes a calcular:</mat-label>
+      
+              <mat-select [(value)]="selectedmonth">
+                <mat-option value="default">Selecciona un mes</mat-option>
+                <div *ngFor="let mes of meses">
+                  <mat-option value={{mes}} (click)="obtenerPaseosMes(mes)">{{mes}}</mat-option>
+                </div>
+              </mat-select>
+            </mat-form-field>
+            <mat-list-item *ngIf="countmesready">
+              <mat-icon matListItemIcon>assessment</mat-icon>
+              <div matListItemTitle>{{countmes}}</div>
+              <div matListItemLine>Paseos mensuales</div>
+            </mat-list-item>
+            <mat-list-item *ngIf="countmesready">
+              <mat-icon matListItemIcon>attach_money</mat-icon>
+              <div matListItemTitle>{{precio}}</div>
+              <div matListItemLine>Pago por paseos mensuales</div>
+            </mat-list-item>
+          </mat-list>
+
+          
+          <h5 class="error" *ngIf="notdelete">No se pudo borrar el paseador. Tiene mascotas asignadas</h5>
+
+
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="del()">Eliminar</button>
+            <button mat-raised-button color="primary" (click)="restorePass()">Restablecer Contraseña</button>
+            <button mat-raised-button color="accent" routerLink="/manageboard">Volver</button>
+          </div>
+                
+        
+
+        
+
+    </div>
+
+
+</div>

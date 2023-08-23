@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside" *ngIf="dataready">
+        <div class="botontext">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/manageboard">
+              <mat-icon color="accent">arrow_back</mat-icon>
+            </button>
+            <h5>Volver</h5>
+        </div>
+        <h4>Informacion de {{mascotaInfo.pet_name}}</h4>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" routerLink="/editMascota/{{mascotaInfo.pet_token}}" >Editar</button>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-list>
+            <div mat-subheader>Datos</div>
+            <mat-list-item>
+              <mat-icon matListItemIcon>pets</mat-icon>
+              <div matListItemTitle>{{mascotaInfo.pet_name}}</div>
+              <div matListItemLine>Nombre</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>pets</mat-icon>
+                <div matListItemTitle>{{mascotaInfo.pet_breed}}</div>
+                <div matListItemLine>Raza</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>flag</mat-icon>
+                <div matListItemTitle>{{mascotaInfo.service}}</div>
+                <div matListItemLine>Servicio</div>
+            </mat-list-item>
+        
+            <mat-divider></mat-divider>
+            <div mat-subheader>Dueño: </div>
+            <mat-list-item>
+                <mat-icon matListItemIcon>perm_identity</mat-icon>
+                <div matListItemTitle>{{duenoInfo.client_name}}</div>
+                <div matListItemLine>Dueño</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Paseador Asignado: </div>
+            <mat-list-item>
+                <mat-icon matListItemIcon>recent_actors</mat-icon>
+                <div matListItemTitle>{{paseadorInfo.walker_name}}</div>
+                <div matListItemLine>Paseador</div>
+            </mat-list-item>
+            
+            
+          </mat-list>
+
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="del()">Eliminar</button>
+            <button mat-raised-button color="accent" routerLink="/manageboard">Volver</button>
+          </div>
+        
+        
+
+        
+
+    </div>
+
+
+</div>

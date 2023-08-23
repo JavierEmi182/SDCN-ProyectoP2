@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside">
+        <div class="botontext">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/manageboard">
+              <mat-icon color="accent">arrow_back</mat-icon>
+            </button>
+            <h5>Volver</h5>
+        </div>
+        <h4>Editar Servicio: {{servicioAc.servicio_ID}}</h4>
+        <mat-divider></mat-divider>
+
+        <div class="form">
+
+            <mat-form-field>
+                <mat-label>Mascota:</mat-label>
+        
+                <mat-select [(value)]="selectedMascota" disabled>
+                  <div *ngFor="let masc of mascotas">
+                    <mat-option value={{masc.pet_token}}>{{masc.pet_name}}</mat-option>
+                  </div>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Paseador:</mat-label>
+        
+                <mat-select [(value)]="selectedPaseador">
+                  <mat-option value="default">Selecciona un Paseador</mat-option>
+                  <div *ngFor="let pas of paseadores">
+                    <mat-option value={{pas.walker_ID}}>{{pas.walker_name}}</mat-option>
+                  </div>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Franja Horaria:</mat-label>
+        
+                <mat-select [(value)]="selectedFranja">
+                  <div *ngFor="let fra of franjas">
+                    <mat-option value="{{fra.franja_id}}">{{fra.convertido}}</mat-option>
+                  </div>
+                </mat-select>
+            </mat-form-field>
+            
+
+
+
+
+            
+            <mat-error *ngIf="messageError">{{errorForm()}}</mat-error>
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Editar</button>
+                <button mat-raised-button color="accent" routerLink="/manageboard">Cancelar</button>
+            </div>
+
+
+            
+        </div>
+        
+        
+        
+
+        
+
+    </div>
+
+
+</div>

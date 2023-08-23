@@ -1,0 +1,102 @@
+*{
+    
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+        
+}
+.titles{
+    color: white;
+    padding-bottom: 20px;
+    
+   
+}
+h2{
+    padding: 25px;
+    font-size: 3vh;
+
+}
+.h2t{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+h3{
+    font-size: 2.9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fontcolor{
+    color: white;
+}
+.arrows{
+    display: flex;
+    color: white;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+
+.mat-grid-tile :hover{
+    color: grey;
+}
+.mat-grid-list{
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    height: 50vh;
+}
+.example-card {
+    width: 80%;
+    height: 95%;
+    
+    
+  }
+
+  mat-card-content{
+    font-size: 2.9vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+  }
+
+mat-card{
+    background-image: url(../../../assets/img/pupppy.jpeg) ;
+    
+    background-size: cover;
+    background-position: center;
+    
+    color: white;
+}
+.logo{
+    padding-top: 20px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+img{
+    height: 18vh;
+    
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight:normal;
+    font-style: normal;
+    font-size: 40px;
+    display: contents;
+}
+.c2{
+    background-image: url(../../../assets/img/2.jpeg) ;
+    
+}
+.c3{
+    background-image: url(../../../assets/img/3.jpeg) ;
+}
+
+.c4{
+    background-image: url(../../../assets/img/puppers.jpg);
+}
+

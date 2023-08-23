@@ -1,0 +1,107 @@
+.contenidopag{
+    margin: 16px;
+    width: 100%;
+    border-right: none;
+  
+    border-radius: 20px;
+    border-color: rgba(0, 0, 0, 0.655);
+    padding: 16px;
+    display: flex;
+  
+  }
+  
+.contenidoside{
+width: 100%;
+padding: 3px;
+
+}
+
+.contenidoside .form{
+    justify-content: center;
+}
+
+.form{
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+
+.botontext{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.botontext h5{
+    padding-top: 7px;
+    padding-left: 7px;
+}
+
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+}
+
+
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: lightgray;
+}
+
+.contentcalendar{
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+}
+
+.pickers{
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+
+}
+
+mat-drawer-container {
+    height: calc(100vh - 65px);
+}
+
+mat-form-field{
+    width: 95%;
+}
+
+.fila1{
+    width: 30%;
+}
+
+
+td button{
+    margin-left: 15px;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0px !important;
+}
+
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }

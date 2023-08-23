@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside">
+        <div class="botontext">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/manageboard">
+              <mat-icon color="accent">arrow_back</mat-icon>
+            </button>
+            <h5>Volver</h5>
+        </div>
+        <h4>Editar Cliente: {{clienteInfo.client_name}}</h4>
+        <mat-divider></mat-divider>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Nombre y Apellido del cliente: </mat-label>
+                <input matInput value={{nomclient}} disabled>
+                <mat-error *ngIf="nombre.invalid">{{getErrorCel()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Email del cliente: </mat-label>
+              <input matInput value={{emailclient}} disabled>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Usuario del cliente: </mat-label>
+                <input matInput value={{userclient}} disabled>
+                <mat-error *ngIf="username.invalid">{{getErrorUsername()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Numero de cedula: </mat-label>
+              <input matInput  value={{cedclient}} disabled>
+              <mat-error *ngIf="cedula.invalid">{{getErrorCed()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Numero de telefono: </mat-label>
+              <input matInput value={{telclient}}>
+              <mat-error *ngIf="telefono.invalid">{{getErrorCel()}}</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field>
+              <mat-label>Area:</mat-label>
+      
+              <mat-select [(value)]="selectedArea">
+                <mat-option value="0">Selecciona un Area</mat-option>
+                <div *ngFor="let area of areas">
+                  <mat-option value="{{area.area_id}}" (click)="getDataAreaLocation(area.area_id)">{{area.area_name}}</mat-option>
+                </div>
+              </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <mat-label>Localizacion:</mat-label>
+    
+            <mat-select [(value)]="selectedLocation">
+              <mat-option value="0">Selecciona una Localizacion</mat-option>
+              <div *ngFor="let location of arrpresentar">
+                <mat-option value="{{location.location_id}}" (click)="actualizarVistaLocations()">{{location.location_name}}</mat-option>
+              </div>
+              <mat-option value="-1" (click)="nuevaLocalizacion()">Nueva Localizacion</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field *ngIf="newLocation">
+            <mat-label>Nombre de nueva localizacion: </mat-label>
+            <input matInput placeholder="Ceibos" [formControl]="newLocationName" [value]="newLocationName" required>
+            <mat-error *ngIf="newLocationName.invalid">{{getErrorLocation()}}</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" *ngIf="newLocation" (click)="createLocation()">Crear Localizacion</button>
+
+          <mat-form-field>
+            <mat-label>Link de Google maps: </mat-label>
+            <input matInput value={{linkclient}}>
+            <mat-error *ngIf="link.invalid">{{getErrorLink()}}</mat-error>
+          </mat-form-field>
+
+            <mat-error *ngIf="messageError">{{errorForm()}}</mat-error>
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Confirmar</button>
+                <button mat-raised-button color="accent" routerLink="/manageboard">Cancelar</button>
+            </div>
+
+
+            
+        </div>
+        
+        
+        
+
+        
+
+    </div>
+
+
+</div>

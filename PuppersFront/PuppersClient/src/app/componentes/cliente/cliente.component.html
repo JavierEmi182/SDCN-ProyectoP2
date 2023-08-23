@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div style="background-color: black;" class="arrows" >
+  <div>
+    <span class="material-icons"  routerLink="/homecliente" style="color:white; font-size: 56px; transform: rotate(0deg); -webkit-text-stroke-width: 4px;"> arrow_back </span>
+  </div>
+  <div class="titles" *ngFor="let c of cliente">
+    <h2>Hola {{c.client_name}} !</h2>
+    <div *ngFor="let m of mascota" class="">
+      <h3>Estos son los detalles de {{m.pet_name}}:</h3>
+    </div>
+   
+  </div> 
+    
+</div>
+<mat-grid-list cols="1" rowHeight="3:1" gutterSize="35px" >
+    <mat-grid-tile class="cu1">
+        
+        <mat-card class="example-card" >
+            <mat-card-content>
+                <mat-icon >pets</mat-icon>
+            </mat-card-content>
+            <mat-card-content *ngFor="let m of mascota">
+                En su plan de {{m.service}} paseos, le quedan {{paseosFaltantes}} paseos disponibles
+            </mat-card-content>
+          </mat-card>
+          <mat-icon class="arrow">keyboard_arrow_right</mat-icon>
+    </mat-grid-tile>
+    
+
+
+    <mat-grid-tile>
+        <mat-card class="example-card c2"  >
+            <mat-card-content><mat-icon>calendar_today</mat-icon>
+                
+              </mat-card-content>
+            <mat-card-content *ngFor="let f of franja">
+              Franja Horaria: {{f.convertido}}
+            </mat-card-content>
+          </mat-card>
+          <mat-icon class="arrow">keyboard_arrow_right</mat-icon>
+    </mat-grid-tile>
+
+
+
+    <mat-grid-tile>
+
+        <mat-card class="example-card c3" *ngFor="let m of mascota" routerLink="/paseadorprofile/{{walker}}/{{m.pet_token}}" >
+            <mat-card-content><mat-icon>add_circle</mat-icon>
+            
+            </mat-card-content>
+           
+            <mat-card-content >Conoce a tu paseador asignado</mat-card-content>
+          </mat-card>
+          <mat-icon class="arrow">keyboard_arrow_right</mat-icon>
+    </mat-grid-tile>
+     
+    
+  </mat-grid-list>
+
+<div class="logo">
+    <img src="../../../assets/img/puppets.png"> 
+</div> 
+
+

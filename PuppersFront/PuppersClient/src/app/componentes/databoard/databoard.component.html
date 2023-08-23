@@ -1,0 +1,260 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside">
+        <mat-grid-list cols="1" rowHeight="10:1" class="pickers">
+            <mat-grid-tile class="fila1">
+              <mat-form-field>
+                <mat-label>Datos a mostrar:</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="option0" (click)="obtenerDatosVista()">Selecciona una opcion</mat-option>
+                  <mat-option value="option1" (click)="obtenerDatosVista()">Clientes por Área</mat-option>
+                  <mat-option value="option2" (click)="obtenerDatosVista()">Clientes por Localización</mat-option>
+                  <mat-option value="option3" (click)="obtenerDatosVista()">Mascotas por Paseador</mat-option>
+                  <mat-option value="option4" (click)="obtenerDatosVista()">Mascotas y Dueños</mat-option>
+                    
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <div class="tabla" *ngIf="areaClientes">
+              <h3>Clientes por Área</h3>
+              <mat-grid-list cols="1" rowHeight="10:1" class="pickers">
+                <mat-grid-tile class="fila1">
+                  <mat-form-field>
+                    <mat-label>Areas:</mat-label>
+            
+                    <mat-select [(value)]="selectedArea">
+                      <mat-option value="default">Selecciona un Area</mat-option>
+                      <div *ngFor="let area of areas">
+                        <mat-option value={{area}} (click)="queryArea(area.area_name)">{{area.area_name}}</mat-option>
+                      </div>
+                    </mat-select>
+                  </mat-form-field>
+                </mat-grid-tile>
+              </mat-grid-list>
+              <table mat-table [dataSource]="clientesQueryLista" class="mat-elevation-z0" *ngIf="queryReady">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="area">
+                  <th mat-header-cell *matHeaderCellDef> Area </th>
+                  <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="petname">
+                  <th mat-header-cell *matHeaderCellDef> Mascota </th>
+                  <td mat-cell *matCellDef="let element"> {{element.pet_name}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="breed">
+                    <th mat-header-cell *matHeaderCellDef> Raza </th>
+                    <td mat-cell *matCellDef="let element"> {{element.pet_breed}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Dueño </th>
+                  <td mat-cell *matCellDef="let element"> {{element.client_name}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="location">
+                  <th mat-header-cell *matHeaderCellDef> Localizacion </th>
+                  <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                
+  
+                <ng-container matColumnDef="service">
+                  <th mat-header-cell *matHeaderCellDef> Servicio </th>
+                  <td mat-cell *matCellDef="let element"> {{element.service}} </td>
+              </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+  
+              
+            
+        </div>
+        <div class="tabla" *ngIf="localizacionClientes">
+            <h3>Clientes por Localizacion</h3>
+            <mat-grid-list cols="1" rowHeight="10:1" class="pickers">
+              <mat-grid-tile class="fila1">
+                <mat-form-field>
+                  <mat-label>Localizaciones:</mat-label>
+          
+                  <mat-select [(value)]="selectedLocation">
+                    <mat-option value="default">Selecciona una Localizacion</mat-option>
+                    <div *ngFor="let localizacion of localizaciones">
+                      <mat-option value={{localizacion}} (click)="queryLocation(localizacion.location_name)">{{localizacion.location_name}}</mat-option>
+                    </div>
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <table mat-table [dataSource]="clientesQueryLista" class="mat-elevation-z0" *ngIf="queryReady">
+
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="area">
+                <th mat-header-cell *matHeaderCellDef> Area </th>
+                <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="petname">
+                <th mat-header-cell *matHeaderCellDef> Mascota </th>
+                <td mat-cell *matCellDef="let element"> {{element.pet_name}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="breed">
+                  <th mat-header-cell *matHeaderCellDef> Raza </th>
+                  <td mat-cell *matCellDef="let element"> {{element.pet_breed}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Dueño </th>
+                <td mat-cell *matCellDef="let element"> {{element.client_name}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="location">
+                <th mat-header-cell *matHeaderCellDef> Localizacion </th>
+                <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              
+
+              <ng-container matColumnDef="service">
+                <th mat-header-cell *matHeaderCellDef> Servicio </th>
+                <td mat-cell *matCellDef="let element"> {{element.service}} </td>
+            </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </div>
+        <div class="tabla" *ngIf="mascotaPaseador">
+            <h3>Mascotas por Paseador</h3>
+            <mat-grid-list cols="1" rowHeight="10:1" class="pickers">
+              <mat-grid-tile class="fila1">
+                <mat-form-field>
+                  <mat-label>Paseadores:</mat-label>
+          
+                  <mat-select [(value)]="selectedPaseador">
+                    <mat-option value="default">Selecciona un Paseador</mat-option>
+                    <div *ngFor="let paseador of paseadores">
+                      <mat-option value={{paseador.walker_ID}} (click)="queryPaseadores(paseador.walker_name)">{{paseador.walker_name}}</mat-option>
+                    </div>
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <table mat-table [dataSource]="paseadoresQueryLista" class="mat-elevation-z0" *ngIf="queryReady">
+
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Paseador </th>
+                <td mat-cell *matCellDef="let element"> {{element.walker_name}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="petname">
+                <th mat-header-cell *matHeaderCellDef> Mascota </th>
+                <td mat-cell *matCellDef="let element"> {{element.pet_name}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="breed">
+                  <th mat-header-cell *matHeaderCellDef> Raza </th>
+                  <td mat-cell *matCellDef="let element"> {{element.pet_breed}} </td>
+              </ng-container>
+            
+
+              <ng-container matColumnDef="location">
+                <th mat-header-cell *matHeaderCellDef> Localizacion </th>
+                <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+              </ng-container>
+              <!-- Name Column -->
+              <ng-container matColumnDef="area">
+                <th mat-header-cell *matHeaderCellDef> Localizacion </th>
+                <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              
+
+              <ng-container matColumnDef="service">
+                <th mat-header-cell *matHeaderCellDef> Servicio </th>
+                <td mat-cell *matCellDef="let element"> {{element.service}} </td>
+            </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <div class="tabla" *ngIf="mascotaDueno">
+          <h3>Mascotas y Dueños</h3>
+          <table mat-table [dataSource]="mascotaLista" class="mat-elevation-z0" *ngIf="queryReady">
+
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="petname">
+                <th mat-header-cell *matHeaderCellDef> Mascota </th>
+                <td mat-cell *matCellDef="let element"> {{element.pet_name}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="breed">
+                <th mat-header-cell *matHeaderCellDef> Raza </th>
+                <td mat-cell *matCellDef="let element"> {{element.pet_breed}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="client">
+                <th mat-header-cell *matHeaderCellDef> Dueño </th>
+                <td mat-cell *matCellDef="let element"> {{element.client_name}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="walker">
+                <th mat-header-cell *matHeaderCellDef> Paseador </th>
+                <td mat-cell *matCellDef="let element"> {{element.walker_name}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="area">
+                  <th mat-header-cell *matHeaderCellDef> Área </th>
+                  <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="location">
+                <th mat-header-cell *matHeaderCellDef> Localizacion </th>
+                <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="service">
+                <th mat-header-cell *matHeaderCellDef> Servicio </th>
+                <td mat-cell *matCellDef="let element"> {{element.service}} </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+
+    </div>
+
+
+</div>

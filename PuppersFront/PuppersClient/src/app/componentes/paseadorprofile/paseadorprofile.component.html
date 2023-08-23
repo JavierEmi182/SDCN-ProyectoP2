@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div style="background-color: black; " class="arrows" *ngFor="let p of paseador">
+      <div *ngFor="let m of mascota">
+        <span class="material-icons"  routerLink="/cliente/{{m.pet_token}}" style="color:white; font-size: 56px; transform: rotate(0deg); -webkit-text-stroke-width: 4px;"> arrow_back </span>
+  
+      </div>
+      <div class="titles" >
+        <h2>{{p.walker_name}} </h2>
+        <h3 *ngFor="let m of mascota">¡Es el paseador asignado para {{m.pet_name}}!</h3>
+      </div>
+    
+    
+</div>
+<mat-grid-list cols="1" rowHeight="3:1" gutterSize="40px" *ngFor="let p of paseador">
+   
+  
+  
+  <mat-grid-tile >
+
+        
+          
+        
+
+        <mat-card class="example-card cu1">
+            
+            <img class="profile-img-card" src="../../../assets/img/profile.png">
+            <mat-card-content>          
+              Teléfono: {{p.walker_tel}} <br> Tipo de sangre : {{p.walker_bloodtype}}</mat-card-content>
+
+          </mat-card>
+        
+    </mat-grid-tile>
+    
+
+
+    <mat-grid-tile>
+        <mat-card class="example-card c2"  >
+          <mat-card-content><strong>Información Adicional:</strong></mat-card-content>
+            <mat-card-content >
+              Total de paseos realizados: {{conteo}} paseos
+            </mat-card-content>
+          </mat-card>
+          
+    </mat-grid-tile>
+
+
+
+    
+    
+  </mat-grid-list>
+  <div class="logo">
+    <img src="../../../assets/img/puppets.png"> 
+</div> 
+   
+
+
+
+
+
+
+
+

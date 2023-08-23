@@ -1,0 +1,104 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="../../../assets/img/puppers.jpg"
+      class="profile-img-card"
+    />
+    <form
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class='form-group' *ngIf="admin">
+        <label >Si desea cambiar su clave de administrador, contacte con el servicio tecnico de Puppers.</label>
+        <div class="form-group">
+          <button mat-raised-button color="accent" routerLink="/login">Volver</button>
+        </div>
+      </div>
+
+      <div *ngIf="userState">
+      <div class="form-group">
+        <label> Cambio de contraseña para {{user}}</label>
+        <div class="form-group">
+          <label for="username">Nuevo Usuario</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="username.errors && f.submitted"
+          >
+            Username is required!
+          </div>
+        </div>
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="password.errors && f.submitted"
+        >
+          <div *ngIf="password.errors['required']">Password is required!</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Nueva Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          name="newpassword"
+          [(ngModel)]="form.newpassword"
+          required
+          minlength="6"
+          #newpassword="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="password.errors && f.submitted"
+        >
+          <div *ngIf="password.errors['required']">Se requiere una nueva contraseña!</div>
+          <div *ngIf="password.errors['minlength']">
+            La contraseña debe tener al menos 6 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button mat-raised-button color="primary" class="btn btn-primary btn-block">
+          Cambiar contraseña
+        </button>
+        <button mat-raised-button color="accent" routerLink="/login">Volver</button>
+      </div>
+      <div class="form-group">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && isLoginFailed"
+        >
+          Login failed: {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+    </form>
+
+  </div>
+</div>

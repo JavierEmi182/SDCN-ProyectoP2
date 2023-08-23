@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside" *ngIf="locationready">
+        <div class="botontext">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/manageboard">
+              <mat-icon color="accent">arrow_back</mat-icon>
+            </button>
+            <h5>Volver</h5>
+        </div>
+        <h4>Informacion de {{clienteInfo.client_name}}</h4>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" routerLink="/editCliente/{{clienteInfo.client_ID}}" >Editar</button>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-list>
+            <div mat-subheader>Datos</div>
+            <mat-list-item>
+              <mat-icon matListItemIcon>face</mat-icon>
+              <div matListItemTitle>{{clienteInfo.client_name}}</div>
+              <div matListItemLine>Nombre</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>phone_android</mat-icon>
+                <div matListItemTitle>{{clienteInfo.client_tel}}</div>
+                <div matListItemLine>Celular</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>perm_identity</mat-icon>
+                <div matListItemTitle>{{clienteInfo.client_user}}</div>
+                <div matListItemLine>Usuario</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>location_city</mat-icon>
+                <div matListItemTitle>{{locInfo.location_name}}</div>
+                <div matListItemLine>Localizacion</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>location_on</mat-icon>
+                <div matListItemTitle>{{areaInfo.area_name}}</div>
+                <div matListItemLine>Area</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>assignment_ind</mat-icon>
+                <div matListItemTitle>{{clienteInfo.start_date}}</div>
+                <div matListItemLine>Fecha de Inicio</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Le pertenecen las mascotas:</div>
+            <mat-list-item *ngFor="let mascota of mascotasAsignadas">
+              <mat-icon matListItemIcon color="accent">pets</mat-icon>
+              <div matListItemTitle>{{mascota.pet_name}}</div>
+              <div matListItemLine>{{mascota.pet_breed}}</div>
+            </mat-list-item>
+          </mat-list>
+
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="del()" >Eliminar</button>
+            <button mat-raised-button color="primary" >Restablecer Contraseña</button>
+            <button mat-raised-button color="accent" routerLink="/manageboard">Volver</button>
+          </div>
+        
+        
+
+        
+
+    </div>
+
+
+</div>

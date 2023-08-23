@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div class="contenidopag">
+    <app-sidenav></app-sidenav>
+    <div class="contenidoside">
+        <div class="botontext">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" routerLink="/manageboard">
+              <mat-icon color="accent">arrow_back</mat-icon>
+            </button>
+            <h5>Volver</h5>
+        </div>
+        <h4>Nueva Mascota</h4>
+        <mat-divider></mat-divider>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Nombre de la mascota: </mat-label>
+                <input matInput placeholder="Panchito" [formControl]="nombre" [value]="nombre" required>
+                <mat-error *ngIf="nombre.invalid">{{getErrorNombre()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Raza de la mascota: </mat-label>
+                <input matInput placeholder="Border Collie" [formControl]="breed" [value]="breed" required>
+                <mat-error *ngIf="breed.invalid">{{getErrorbreed()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Servicio:</mat-label>
+        
+                <mat-select [(value)]="selectedService">
+                    <mat-option value="default">Selecciona un Servicio</mat-option>
+                    <mat-option value="3P">3 Paseos</mat-option>
+                    <mat-option value="5P">5 Paseos</mat-option>
+                  </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Dueño de la mascota:</mat-label>
+        
+                <mat-select [(value)]="selectedCliente">
+                    <mat-option value="default">Selecciona un Dueño</mat-option>
+                    <div *ngFor="let cliente of clientes">
+                      <mat-option value={{cliente.client_ID}}>{{cliente.client_name}}</mat-option>
+                    </div>
+                  </mat-select>
+            </mat-form-field>
+
+            <mat-error *ngIf="messageError">{{errorForm()}}</mat-error>
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Crear</button>
+                <button mat-raised-button color="accent" routerLink="/manageboard">Cancelar</button>
+            </div>
+
+
+            
+        </div>
+        
+        
+        
+
+        
+
+    </div>
+
+
+</div>

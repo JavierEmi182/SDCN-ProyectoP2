@@ -1,0 +1,63 @@
+mat-drawer {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+
+  border-radius: 20px;
+  border-color: rgba(0, 0, 0, 0.655);
+  padding: 10px;
+  text-align: center;
+}
+
+.mat-drawer-container{
+  background-color: rgb(0,0,0,0%);
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+}
+
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+}
+
+.contentcalendar{
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+}
+
+.pickers{
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  display: flex;
+
+}
+
+mat-drawer-container {
+  height: calc(100vh - 65px);
+}
+
+mat-form-field{
+  width: 95%;
+}
+
+.fila1{
+  width: 30%;
+}

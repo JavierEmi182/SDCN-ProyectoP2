@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Puppers</string>
+    <string name="title_activity_main">Puppers</string>
+    <string name="package_name">com.puppers.app</string>
+    <string name="custom_url_scheme">com.puppers.app</string>
+</resources>
