@@ -1,0 +1,322 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: glorona/puppers:puppersdb
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: root
+          - name: MYSQL_DATABASE
+            value: PuppersDB
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+          - name: mysql-data
+            mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mysql-init-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: init-mysql
+        image: glorona/puppers:puppersdb
+        command: ["/bin/sh", "-c", "mysql -h 127.0.0.1 -u root -proot < /scripts.sql"]
+        volumeMounts:
+          - name: scripts-volume
+            mountPath: /scripts.sql
+            subPath: DogWalker-Script.sql
+      restartPolicy: Never
+      volumes:
+        - name: scripts-volume
+          hostPath:
+            path: DogWalker-Script.sql
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-scripts
+data:
+  DogWalker-Script.sql: 
+    CREATE DATABASE IF NOT EXISTS PuppersDB;
+    USE PuppersDB;
+
+    CREATE TABLE IF NOT EXISTS franjaHoraria(
+      franja_id INT AUTO_INCREMENT PRIMARY KEY,
+        start_minute SMALLINT,
+        end_minute SMALLINT,
+        convertido VARCHAR(11) unique
+    );
+
+    CREATE TABLE IF NOT EXISTS area(
+      area_id INT AUTO_INCREMENT PRIMARY KEY,
+        area_name VARCHAR(255) unique
+    );
+
+    CREATE TABLE IF NOT EXISTS location(
+        location_id INT AUTO_INCREMENT,
+        location_name VARCHAR(255) unique,
+        area_id INT,
+        PRIMARY KEY (location_id, area_id),
+        FOREIGN KEY (area_id)
+        references area (area_id)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE
+    );
+
+    CREATE TABLE IF NOT EXISTS clientes (
+      client_tel VARCHAR(12) ,
+        client_ID VARCHAR(10) PRIMARY KEY,
+        client_name VARCHAR(128) NOT NULL,
+        start_date DATE,
+        client_email VARCHAR(254),
+        client_user VARCHAR(18) NOT NULL,
+        client_password VARCHAR(64), 
+        client_salt VARCHAR(20),
+        location_id int,
+        address_link VARCHAR(510),
+        foreign key FK2 (location_id)
+        references location (location_id)
+    );
+
+    ALTER TABLE clientes ADD INDEX idx_client_ID (client_ID);
+
+    CREATE TABLE IF NOT EXISTS paseadores(
+      walker_ID VARCHAR(10) not null primary key,
+        walker_name VARCHAR(128) NOT NULL,
+        start_date DATE,
+        walker_tel VARCHAR(12) NOT NULL,
+        walker_user VARCHAR(18) NOT NULL,
+        walker_password VARCHAR(64) NOT NULL,
+        walker_address VARCHAR(254),
+        walker_linkaddress VARCHAR(510),
+        walker_photoURL VARCHAR(510),
+        walker_bloodtype VARCHAR(3),
+        walker_salt VARCHAR(20) NOT NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS mascotas (
+        pet_token int AUTO_INCREMENT,
+        client_ID VARCHAR(10),
+        pet_name VARCHAR(255) NOT NULL,
+        service VARCHAR(2) DEFAULT '5P',
+        renovation_date DATE default '2023-12-31',
+        pet_breed VARCHAR(255) DEFAULT 'mixed',
+        PRIMARY KEY (pet_token),
+        FOREIGN KEY (client_ID)
+            REFERENCES clientes (client_ID)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE
+    );
+
+
+    create table if not exists servicio(
+      servicio_ID int auto_increment,
+      pet_token int,
+        walker_ID VARCHAR(10),
+        franja_id int,
+        primary key (servicio_ID, pet_token, walker_ID, franja_ID),
+        foreign key fk1 (pet_token)
+        references mascotas (pet_token)
+            on update cascade
+            on delete cascade,
+      foreign key fk2 (walker_ID)
+        references paseadores (walker_ID)
+            on update cascade
+            on delete cascade,
+      foreign key fk3 (franja_ID)
+        references franjaHoraria (franja_ID)
+            on update cascade
+            on delete cascade
+    );
+    /*
+    DELIMITER $$
+    CREATE TRIGGER walker_delete BEFORE DELETE ON servicio
+      FOR EACH ROW BEGIN
+        UPDATE servicio SET servicio.walker_ID = '0000000000' WHERE walker_ID = OLD.walker_ID;
+      END $$
+    DELIMITER ;
+    */
+    create table if not exists paseo(
+        paseo_ID int auto_increment primary key,
+        walker_ID VARCHAR(10),
+        servicio_ID int,
+        start_date datetime,
+        end_date datetime,
+        evidenceURL VARCHAR(510),
+      foreign key fk2 (walker_ID)
+        references paseadores (walker_ID)
+            on update cascade
+            on delete cascade,
+      foreign key fk3 (servicio_ID)
+        references servicio (servicio_ID)
+    );
+
+    CREATE TABLE IF NOT EXISTS admin(
+      admin_username VARCHAR(18) PRIMARY KEY,
+        admin_password VARCHAR(64),
+        admin_salt VARCHAR(20)
+    );
+
+
+    use `PuppersDB`;
+
+    insert into franjaHoraria (start_minute,end_minute, convertido)
+    values
+      (420,480,'7:00-8:00'),
+        (480,540,'8:00-9:00'),
+        (540,600,'9:00-10:00'),
+        (600,660,'10:00-11:00'),
+        (660,720,'11:00-12:00'),
+        (720,780,'12:00-13:00'),
+        (780,840,'13:00-14:00'),
+        (840,900,'14:00-15:00'),
+        (900,960,'15:00-16:00'),
+        (960,1020,'16:00-17:00'),
+        (1020,1080,'17:00-18:00'),
+        (1080,1140,'18:00-19:00'),
+        (1140,1200,'19:00-20:00')
+        ;
+
+    insert into area (area_name)
+    values
+      ('Ceibos'),
+        ('Samborondón'),
+        ('Vía a la Costa')
+        ;
+
+    INSERT INTO location (location_name, area_id)
+    values 
+      ('Puerto Azul',3),
+        ('Villas del Bosque',3),
+        ('Costal Mar II',3),
+        ('Palma Mayorca',2),
+        ('Santa María 3',2),
+        ('Tenis Club',2),
+        ('El Río',2),
+        ('Paz',2),
+        ('Mocolí Golf Club',2),
+        ('Isla Sol',2),
+        ('Laguna del Sol',2),
+        ('Lago Sol',2),
+        ('Vista al Parque',2),
+      ('Ceibos',1)
+            ;
+            
+    INSERT INTO clientes (client_name,client_ID, start_date,client_user, client_password, client_salt ,client_tel, location_id)
+    VALUES
+      ('Maria Cristina Lila','0994336000',"2023-02-07",'marlil','0b3327847df7ee3db2535cf0dd65e72b03b242878d15f8e43c78f44eed2e88fe','09943360000994336000','0994336000', 1),
+        ('Piedad Mupi','0904821089',"2023-05-02",'piemup','067cd60b236d94730f6639106d9e975f077d94246ca597b0da14ae006444a8e5','09048210890904821089','0998595854', 1),
+        ('Giovanna Guarna','1714505219',"2020-05-19",'giogua','ebcf83899c5b91ba40e1e4ad80101eb1ed16d623909e575c55d19ad3eed65b95','17145052191714505219','0998824124', 1), 
+        ('Nikki Mackliff','0918009580',"2020-05-19",'nikmac','36516940526a3795ab8a6a7efbe8a606e28b560e369dc570cb537406eb9f67a1','09180095800918009580','0994602847', 1), 
+        ('Luli Salvatierra','0915290837',"2022-01-29",'lulsal','e4dd144446cdea1e29e357226c7bff08dc6e53f3ca53ee664ef400fee93a22ae','09152908370915290837','0999778855', 1), 
+        ('Franchesca Achi','0922105507',"2019-04-24",'fraach','afbc3f216b2727d3565365d7c716ff26a01f453eb7e9ee309efbc7468fc5cf60','09221055070922105507','0997203019', 4), 
+        ('Irene Robles','0908604796',"2020-03-20",'irerob','6accda698f78860b95fb87b7df116acea4728b5d616c7bf60bc404976b839f2e','09086047960908604796','0999517857', 5), 
+        ('Alejandro Pere','0905028924',"2020-08-17",'aleper','3321894ddeeec622fafbd6424c8354b2d21170db74d38feacd65c55093383ad2','09050289240905028924','0999503107', 7), 
+        ('Ana Cecilia Alvarado','0905014115',"2022-02-11",'anaalv','eab1b8eded97fabf6e0ebb8f1e8833bb3dbeb4c3c3a88b4fbf7067435a5911e8','09050141150905014115','13052053870', 8),
+        ('Laurise Achi','0997203018',"2022-03-31",'lauach','58ba3f88080c1f5e72296e491cc0d2b28f6befe986b378dcf74b9d968262509a','09972030180997203018','0997203018', 9),
+        ('Daniela Martinez','0912975141',"2019-07-03",'danmar','4417d48d5cd00432e1104d4834bbcec391931b02d8e29c34c56be2fd1f50c547','09129751410912975141','0999421190', 11),
+        ('Jorge Porras','0705403145',"2023-01-24",'jorpor','b2b336de8b280a24e25d3bcdd2be7ce65165901412acdffca922dfe4aa75b30f','07054031450705403145','0979921398', 14) 
+        ;
+
+    INSERT INTO paseadores (walker_name, walker_ID, start_date,walker_user, walker_password, walker_salt,walker_tel,walker_address, walker_linkaddress,walker_photoURL, walker_bloodtype)
+    VALUES
+        ('Dave Bone','0927364109',"2019-06-24",'davbon','73f3626f69140a34765fa27b20937a78b8412f986c35fe2f0749f410d186a8f2','09273641090927364109','0991635260','','','',''),
+        ('Isaias Quispe','0956588776',"2023-06-28",'isaqui','db4bbb53d8a8d9a297ad5b2dece3897bcbb725d83893dcdb0f24c5d5471c9ecc','09565887760956588776','0983526424','','','',''),
+        ('Bryan Velasco','0952063576',"2023-05-30",'bryvel','7d95921b119865bebf4c14307878c5d27c10d1aa61c6b9eedba73b90d0ff36e5','09520635760952063576','0978920812','','','',''),
+        ('No Asignado','0000000000', '2023-06-24','empty','','empty','0000000000','','','','');  
+
+    INSERT INTO mascotas (client_ID, pet_name, service, pet_breed) 
+    VALUES
+      ('0994336000',"Leia",'5P',"Pastor Aleman"),
+        ('0904821089',"Emma",'3P',"Golden Retriever"),
+        ('1714505219',"Saki",'5P',"Chihuahua"),
+        ('1714505219',"Tiago",'5P',"Chihuahua"),
+        ('1714505219',"Niko",'5P',"Chihuahua"),
+        ('0918009580',"Lali",'3P',"Chihuahua"),
+        ('0918009580',"Emilia",'3P',"Chihuahua"),
+        ('0918009580',"Tiaga",'3P',"Chihuahua"),
+        ('0918009580',"Dolce",'3P',"Chihuahua"),
+        ('0915290837',"Rocky",'5P',"Labrador"),
+        ('0922105507',"Lulo",'5P',"Labrador"),
+        ('0905028924',"Figo",'5P',"Standford Terrier"),
+        ('0905014115',"Ecco",'5P',"Mixed"),
+        ('0997203018',"Harry",'5P',"Sheltie"),
+        ('0912975141',"Coco",'3P',"Beagle"),
+        ('0908604796',"Coby","5P","Mixed"),
+        ("0705403145","Max","5P","Pitbull"),
+        ("0705403145","Mia","5P","Pitbull");
+
+
+    insert into servicio (pet_token,walker_ID,franja_ID)
+      values
+        (1,'0927364109',1),
+        (2,'0927364109',1),
+        (3,'0927364109',1),
+        (4,'0927364109',1),
+        (5,'0927364109',1),
+        (6,'0927364109',1),
+        (7,'0927364109',1),
+        (8,'0927364109',1),
+        (9,'0927364109',1),
+        (10,'0956588776',1),
+        (11,'0956588776',1),
+        (12,'0952063576',1),
+        (13,'0956588776',1),
+        (14,'0956588776',1),
+        (15,'0956588776',1),
+        (18,'0956588776',1),
+        (16,'0956588776',1),
+        (17,'0956588776',1);
+
+    INSERT INTO admin (admin_username, admin_password, admin_salt)
+      values
+        ("admin","276fadfc9edc49f5f9af96d97636731def7525d4bfa16bc07699534873a474cc","01234567890123456789"),
+        ("ricardoadmin","6ed23cf3464d9b2ac0d04608e6edf577a83cd0de3ab02fd27dbbc3743223fefe","131183485500113118");
+        -- salt= 131183485500113118
+        -- adminpassword
+---
+
+kind: Service  # Kubernetes API version
+apiVersion: v1 # Kubernetes resource kind we are creating
+metadata:
+  name: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+  - protocol: TCP
+    port: 3306   # The port that the service is running on in the cluster
+    targetPort: 3306   # The port exposed by the service
+    nodePort: 32761
+  type: LoadBalancer     # type of the service.

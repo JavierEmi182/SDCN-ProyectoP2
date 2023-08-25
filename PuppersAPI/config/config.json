@@ -2,8 +2,8 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "dogwalker-db",
-    "host": "127.0.0.1",
+    "database": "PuppersDB",
+    "host": "10.244.1.94",
     "dialect": "mysql"
   },
   "test": {

@@ -1,0 +1,35 @@
+apiVersion: apps/v1 # Kubernetes API version
+kind: Deployment  # Kubernetes resource kind we are creating
+metadata:
+  name: api-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nodejs
+  replicas: 5 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - name: nodejs
+        image: glorona/puppers:puppersapib # Image that will be used to containers in the cluster
+        ports:
+        - containerPort: 4001 # The port that the container is running on in the cluster
+---
+
+kind: Service  # Kubernetes API version
+apiVersion: v1 # Kubernetes resource kind we are creating
+metadata:
+  name: api-service
+spec:
+  selector:
+    app: nodejs
+  ports:
+  - protocol: TCP
+    port: 4001   # The port that the service is running on in the cluster
+    targetPort: 4001   # The port exposed by the service
+    nodePort: 32766
+  type: LoadBalancer     # type of the service. 
+  externalTrafficPolicy: Local

@@ -14,4 +14,4 @@ services:
     ports:
       - "6253:6253"
     volumes:
-      - C:\Users\Usuario\Desktop\PuppersDocker\PuppersDB\Data:/var/lib/mysql
+      - C:\Users\glorona\Desktop\SDCN\SDCN-ProyectoP2\PuppersDB\Data:/var/lib/mysql

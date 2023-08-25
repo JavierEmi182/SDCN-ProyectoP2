@@ -19,7 +19,6 @@ const paseadoresRequest = require('../services/HTML_Request/paseadoresRequest');
 const adminRequest = require('../services/HTML_Request/adminRequest.js');
 
 router.post('/log',
-  rateLimit.logLimiter,
   validator(schemas.ADMIN_DATA, 'body'),
   (req, res, next) => {
     adminRequest.log(req, res, next);

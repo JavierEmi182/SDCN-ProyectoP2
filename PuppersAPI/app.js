@@ -52,10 +52,6 @@ app.use(compression());
 
 app.use(tokenVerified.authChecker());
 
-if ('test'.localeCompare(process.env.NODE_ENV) !== 0) {
-  app.use(rateLimit.generalLimiter);
-}
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
